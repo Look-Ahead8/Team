@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.dao.MemberMapper">
+  <resultMap id="BaseResultMap" type="com.team.bean.Member">
+    <id column="m_id" jdbcType="INTEGER" property="mId" />
+    <result column="student_no" jdbcType="CHAR" property="studentNo" />
+    <result column="grade" jdbcType="VARCHAR" property="grade" />
+    <result column="phonenumber" jdbcType="CHAR" property="phonenumber" />
+    <result column="profession" jdbcType="VARCHAR" property="profession" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+    <result column="graduation" jdbcType="VARCHAR" property="graduation" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    m_id, student_no, grade, phonenumber, profession, wechat, graduation, password
+  </sql>
+  <select id="selectByExample" parameterType="com.team.bean.MemberExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tbl_member_information
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_member_information
+    where m_id = #{mId,jdbcType=INTEGER}
+  </select>
+  <select id="selectPassword" parameterType="java.lang.String" resultSets="string">
+    select password from tbl_member_information where student_no=#{student_no,jdbcType=CHAR}
+  </select>
+  <select id="selectByStudentNo" parameterType="java.lang.String" resultSets="com.team.bean.Member">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_member_information
+    where student_no = #{student_no,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+     select * from tbl_member_information
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_member_information
+    where m_id = #{mId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.team.bean.MemberExample">
+    delete from tbl_member_information
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.team.bean.Member">
+    insert into tbl_member_information (m_id, student_no, grade, 
+      phonenumber, profession, wechat, 
+      graduation, password)
+    values (#{mId,jdbcType=INTEGER}, #{studentNo,jdbcType=CHAR}, #{grade,jdbcType=VARCHAR}, 
+      #{phonenumber,jdbcType=CHAR}, #{profession,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
+      #{graduation,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.team.bean.Member">
+    insert into tbl_member_information
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mId != null">
+        m_id,
+      </if>
+      <if test="studentNo != null">
+        student_no,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="phonenumber != null">
+        phonenumber,
+      </if>
+      <if test="profession != null">
+        profession,
+      </if>
+      <if test="wechat != null">
+        wechat,
+      </if>
+      <if test="graduation != null">
+        graduation,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mId != null">
+        #{mId,jdbcType=INTEGER},
+      </if>
+      <if test="studentNo != null">
+        #{studentNo,jdbcType=CHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        #{phonenumber,jdbcType=CHAR},
+      </if>
+      <if test="profession != null">
+        #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="graduation != null">
+        #{graduation,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        md5(#{password,jdbcType=VARCHAR}),
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.team.bean.MemberExample" resultType="java.lang.Long">
+    select count(*) from tbl_member_information
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tbl_member_information
+    <set>
+      <if test="record.mId != null">
+        m_id = #{record.mId,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentNo != null">
+        student_no = #{record.studentNo,jdbcType=CHAR},
+      </if>
+      <if test="record.grade != null">
+        grade = #{record.grade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phonenumber != null">
+        phonenumber = #{record.phonenumber,jdbcType=CHAR},
+      </if>
+      <if test="record.profession != null">
+        profession = #{record.profession,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wechat != null">
+        wechat = #{record.wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.graduation != null">
+        graduation = #{record.graduation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tbl_member_information
+    set m_id = #{record.mId,jdbcType=INTEGER},
+      student_no = #{record.studentNo,jdbcType=CHAR},
+      grade = #{record.grade,jdbcType=VARCHAR},
+      phonenumber = #{record.phonenumber,jdbcType=CHAR},
+      profession = #{record.profession,jdbcType=VARCHAR},
+      wechat = #{record.wechat,jdbcType=VARCHAR},
+      graduation = #{record.graduation,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.team.bean.Member">
+    update tbl_member_information
+    <set>
+      <if test="studentNo != null">
+        student_no = #{studentNo,jdbcType=CHAR},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        phonenumber = #{phonenumber,jdbcType=CHAR},
+      </if>
+      <if test="profession != null">
+        profession = #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="graduation != null">
+        graduation = #{graduation,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = md5(#{password,jdbcType=VARCHAR}),
+      </if>
+    </set>
+    where m_id = #{mId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.team.bean.Member">
+    update tbl_member_information
+    set student_no = #{studentNo,jdbcType=CHAR},
+      grade = #{grade,jdbcType=VARCHAR},
+      phonenumber = #{phonenumber,jdbcType=CHAR},
+      profession = #{profession,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      graduation = #{graduation,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where m_id = #{mId,jdbcType=INTEGER}
+  </update>
+</mapper>

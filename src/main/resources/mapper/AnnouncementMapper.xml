@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.dao.AnnouncementMapper">
+    <resultMap id="BaseResultMap" type="com.team.bean.Announcement">
+      <id column="announcement_id" jdbcType="INTEGER" property="announcementId"/>
+      <result column="message" jdbcType="VARCHAR" property="message"/>
+      <result column="announcement_time" jdbcType="TIMESTAMP" property="announcementTime"/>
+    </resultMap>
+    <insert id="insertSelective" parameterType="com.team.bean.Announcement">
+    insert into tbl_announcement
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="historyId != null">
+        announcement_id,
+      </if>
+      <if test="message != null">
+        message,
+      </if>
+      <if test="histroyDate != null">
+        announcement_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="historyId != null">
+        #{announcementId,jdbcType=INTEGER},
+      </if>
+      <if test="message != null">
+        #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="histroyDate != null">
+        #{announcementTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectnew" resultMap="BaseResultMap">
+    select * from tbl_announcement limit 1
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select * from tbl_announcement 
+  </select>
+  <delete id="deleteAnnouncement" parameterType="java.lang.Integer">
+    delete from tbl_announcement where announcement_id=#{announcementId,jdbcType=INTEGER}
+  </delete>
+ </mapper>

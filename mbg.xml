@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+    <commentGenerator>
+		<property name="suppressAllComments" value="true" />
+	</commentGenerator>
+    <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+        connectionURL="jdbc:mysql://localhost:3306/team"
+        userId="root"
+        password="a3692581470">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.team.bean" targetProject=".\src\main\java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="mapper"  targetProject=".\src\main\resources">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.team.dao"  targetProject=".\src\main\java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+    <table tableName="tbl_member_information" domainObjectName="Member"></table>
+    <table tableName="tbl_resume" domainObjectName="Resume"></table>
+    <table tableName="tbl_history" domainObjectName="History"></table>
+    <table tableName="tbl_announce" domainObjectName="Announce"></table>
+    <table tableName="tbl_award" domainObjectName="Award"></table>
+    <table tableName="tbl_award_pirture" domainObjectName="APirture"></table>
+    <table tableName="tbl_life" domainObjectName="Life"></table>
+    <table tableName="tbl_life_pirture" domainObjectName="LPirture"></table>
+    <table tableName="tbl_project" domainObjectName="Project"></table>
+    <table tableName="tbl_project_pirture" domainObjectName="PPirture"></table>
+  </context>
+</generatorConfiguration>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.dao.ResumeMapper">
+  <resultMap id="BaseResultMap" type="com.team.bean.Resume">
+    <id column="resume_id" jdbcType="INTEGER" property="resumeId" />
+    <result column="student_no" jdbcType="CHAR" property="studentNo" />
+    <result column="direction" jdbcType="VARCHAR" property="direction" />
+    <result column="grade" jdbcType="VARCHAR" property="grade" />
+    <result column="phonenumber" jdbcType="CHAR" property="phonenumber" />
+    <result column="profession" jdbcType="VARCHAR" property="profession" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+    <result column="evaluation" jdbcType="VARCHAR" property="evaluation" />
+    <result column="skills" jdbcType="VARCHAR" property="skills" />
+    <result column="experience" jdbcType="VARCHAR" property="experience" />
+    <result column="expectation" jdbcType="VARCHAR" property="expectation" />
+    <result column="others" jdbcType="VARCHAR" property="others" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    resume_id, student_no, direction, grade, phonenumber, profession, wechat, evaluation, 
+    skills, experience, expectation, others
+  </sql>
+  <select id="selectByExample" parameterType="com.team.bean.ResumeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tbl_resume
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_resume
+    where resume_id = #{resumeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_resume
+    where resume_id = #{resumeId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.team.bean.ResumeExample">
+    delete from tbl_resume
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.team.bean.Resume">
+    insert into tbl_resume (resume_id, student_no, direction, 
+      grade, phonenumber, profession, 
+      wechat, evaluation, skills, 
+      experience, expectation, others
+      )
+    values (#{resumeId,jdbcType=INTEGER}, #{studentNo,jdbcType=CHAR}, #{direction,jdbcType=VARCHAR}, 
+      #{grade,jdbcType=VARCHAR}, #{phonenumber,jdbcType=CHAR}, #{profession,jdbcType=VARCHAR}, 
+      #{wechat,jdbcType=VARCHAR}, #{evaluation,jdbcType=VARCHAR}, #{skills,jdbcType=VARCHAR}, 
+      #{experience,jdbcType=VARCHAR}, #{expectation,jdbcType=VARCHAR}, #{others,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.team.bean.Resume">
+    insert into tbl_resume
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="resumeId != null">
+        resume_id,
+      </if>
+      <if test="studentNo != null">
+        student_no,
+      </if>
+      <if test="direction != null">
+        direction,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="phonenumber != null">
+        phonenumber,
+      </if>
+      <if test="profession != null">
+        profession,
+      </if>
+      <if test="wechat != null">
+        wechat,
+      </if>
+      <if test="evaluation != null">
+        evaluation,
+      </if>
+      <if test="skills != null">
+        skills,
+      </if>
+      <if test="experience != null">
+        experience,
+      </if>
+      <if test="expectation != null">
+        expectation,
+      </if>
+      <if test="others != null">
+        others,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="resumeId != null">
+        #{resumeId,jdbcType=INTEGER},
+      </if>
+      <if test="studentNo != null">
+        #{studentNo,jdbcType=CHAR},
+      </if>
+      <if test="direction != null">
+        #{direction,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        #{phonenumber,jdbcType=CHAR},
+      </if>
+      <if test="profession != null">
+        #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluation != null">
+        #{evaluation,jdbcType=VARCHAR},
+      </if>
+      <if test="skills != null">
+        #{skills,jdbcType=VARCHAR},
+      </if>
+      <if test="experience != null">
+        #{experience,jdbcType=VARCHAR},
+      </if>
+      <if test="expectation != null">
+        #{expectation,jdbcType=VARCHAR},
+      </if>
+      <if test="others != null">
+        #{others,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.team.bean.ResumeExample" resultType="java.lang.Long">
+    select count(*) from tbl_resume
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tbl_resume
+    <set>
+      <if test="record.resumeId != null">
+        resume_id = #{record.resumeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentNo != null">
+        student_no = #{record.studentNo,jdbcType=CHAR},
+      </if>
+      <if test="record.direction != null">
+        direction = #{record.direction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.grade != null">
+        grade = #{record.grade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phonenumber != null">
+        phonenumber = #{record.phonenumber,jdbcType=CHAR},
+      </if>
+      <if test="record.profession != null">
+        profession = #{record.profession,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wechat != null">
+        wechat = #{record.wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.evaluation != null">
+        evaluation = #{record.evaluation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.skills != null">
+        skills = #{record.skills,jdbcType=VARCHAR},
+      </if>
+      <if test="record.experience != null">
+        experience = #{record.experience,jdbcType=VARCHAR},
+      </if>
+      <if test="record.expectation != null">
+        expectation = #{record.expectation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.others != null">
+        others = #{record.others,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tbl_resume
+    set resume_id = #{record.resumeId,jdbcType=INTEGER},
+      student_no = #{record.studentNo,jdbcType=CHAR},
+      direction = #{record.direction,jdbcType=VARCHAR},
+      grade = #{record.grade,jdbcType=VARCHAR},
+      phonenumber = #{record.phonenumber,jdbcType=CHAR},
+      profession = #{record.profession,jdbcType=VARCHAR},
+      wechat = #{record.wechat,jdbcType=VARCHAR},
+      evaluation = #{record.evaluation,jdbcType=VARCHAR},
+      skills = #{record.skills,jdbcType=VARCHAR},
+      experience = #{record.experience,jdbcType=VARCHAR},
+      expectation = #{record.expectation,jdbcType=VARCHAR},
+      others = #{record.others,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.team.bean.Resume">
+    update tbl_resume
+    <set>
+      <if test="studentNo != null">
+        student_no = #{studentNo,jdbcType=CHAR},
+      </if>
+      <if test="direction != null">
+        direction = #{direction,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        phonenumber = #{phonenumber,jdbcType=CHAR},
+      </if>
+      <if test="profession != null">
+        profession = #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluation != null">
+        evaluation = #{evaluation,jdbcType=VARCHAR},
+      </if>
+      <if test="skills != null">
+        skills = #{skills,jdbcType=VARCHAR},
+      </if>
+      <if test="experience != null">
+        experience = #{experience,jdbcType=VARCHAR},
+      </if>
+      <if test="expectation != null">
+        expectation = #{expectation,jdbcType=VARCHAR},
+      </if>
+      <if test="others != null">
+        others = #{others,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where resume_id = #{resumeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.team.bean.Resume">
+    update tbl_resume
+    set student_no = #{studentNo,jdbcType=CHAR},
+      direction = #{direction,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=VARCHAR},
+      phonenumber = #{phonenumber,jdbcType=CHAR},
+      profession = #{profession,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      evaluation = #{evaluation,jdbcType=VARCHAR},
+      skills = #{skills,jdbcType=VARCHAR},
+      experience = #{experience,jdbcType=VARCHAR},
+      expectation = #{expectation,jdbcType=VARCHAR},
+      others = #{others,jdbcType=VARCHAR}
+    where resume_id = #{resumeId,jdbcType=INTEGER}
+  </update>
+</mapper>
