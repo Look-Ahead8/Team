@@ -81,7 +81,7 @@ public class LoginService {
 	 */
 	public boolean checkmember(String studentNo,String password) {
 		String pwd=memberMapper.selectPassword(studentNo);
-		if(pwd.equals(password)) {
+		if(pwd.equals(MD5Util.crypt(password))) {
 			return true;
 		}
 		else {
