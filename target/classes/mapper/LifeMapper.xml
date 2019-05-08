@@ -100,18 +100,19 @@
     where life_id = #{lifeId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMapWithPirture">
-    select *
-    from tbl_life l left join tbl_life_pirture lp
-    on l.life_id=lp.life_id
+     SELECT * FROM tbl_life
   </select>
   <select id="selectOne" resultMap="BaseResultMapWithPirture">
-    SELECT * FROM tbl_life l INNER JOIN tbl_life_pirture lp ON l.life_id=#{lifeId,jdbcType=INTEGER}
+    SELECT * FROM tbl_life l INNER JOIN tbl_life_pirture lp ON l.life_id=lp.life_id AND l.life_id=#{lifeId,jdbcType=INTEGER}
   </select>
   <select id="selectBymId" parameterType="java.lang.Integer" resultSets="com.team.bean.Life">
     select 
     <include refid="Base_Column_List" />
     from tbl_life
     where m_id=#{mId,jdbcType=INTEGER}
+  </select>
+  <select id="selectlifeId"  resultType="java.lang.Integer">
+   SELECT life_id FROM tbl_life ORDER BY life_id DESC LIMIT 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tbl_life
@@ -129,9 +130,9 @@
     values (#{lifeId,jdbcType=INTEGER}, #{mId,jdbcType=INTEGER}, #{context,jdbcType=VARCHAR}, 
       #{lifeDate,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="com.team.bean.Life" useGeneratedKeys="true" keyProperty="lifeId">
+  <insert id="insertSelective" parameterType="com.team.bean.Life"  useGeneratedKeys="true"  keyProperty="lifeId">
     insert into tbl_life
-    <trim prefix="(" suffix=")" suffixOverrides=",">
+     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="lifeId != null">
         life_id,
       </if>

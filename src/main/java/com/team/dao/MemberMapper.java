@@ -33,5 +33,9 @@ public interface MemberMapper {
     int updateByPrimaryKeySelective(Member record);
 
     int updateByPrimaryKey(Member record);
+
+	String selectOldpassword(Integer mId);
+
+	void updatepassword(Member member);
     
 }

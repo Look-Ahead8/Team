@@ -29,4 +29,12 @@ public class MemberService {
 	public Member selectOneMember(Integer mId) {
 		return memberMapper.selectByPrimaryKey(mId);
 	}
+	
+	public String selectOldpassword(Integer mId) {
+		return memberMapper.selectOldpassword(mId);
+	}
+	
+	public void updatepassword(Member member) {
+		memberMapper.updatepassword(member);
+	}
 }

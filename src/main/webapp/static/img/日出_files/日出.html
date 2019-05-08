@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)https://jingyan.baidu.com/album/ff411625e9c92212e48237fc.html?picindex=1 -->
+<html style="overflow: hidden;"><!--STATUS OK--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="referrer" content="always"><title>
+html+css3实现照片墙_在职工作_百度经验</title><link rel="shortcut icon" href="https://jingyan.baidu.com/favicon.ico?v=20171030" type="image/x-icon"><link rel="icon" sizes="any" mask="" href="https://exp.bdstatic.com/static/common-jquery/widget/img-baidu-com/baidu_icon_85beaf5.svg">
+<script async="" src="./日出_files/dp.min.js.下载"></script><script src="./日出_files/hm.js.下载"></script><script async="" src="./日出_files/alog.min.js.下载"></script><script>
+    window.alogObjectConfig = {
+        sample: '1',
+ 
+        product: '132',  
+        page: '132_1510',  
+ 
+        speed: {
+            sample: '0.12'   
+        },
+ 
+        monkey: {
+            sample: '0.12'   
+        },
+ 
+        exception: { 
+            sample: '0.12'   
+        },
+ 
+        feature: {
+            sample: '0.12'   
+        },
+ 
+        cus: {
+            sample: '0'   
+        },
+ 
+        csp: {
+            sample: '0.12',  
+            'default-src': [
+                {match: '*bae.baidu.com', target: 'Accept,Warn'},
+                {match: '*.baidu.com,*.bdstatic.com,*.baidustatic.com,*.baiduimg.com,*.bdimg.com,localhost,*.hao123.com,*.hao123img.com,*.baidubce.com', target: 'Accept'},
+                {match: /^(127|172|192|10)(\.\d+){3}$/, target: 'Accept'},
+                {match: '*', target: 'Accept,Warn'}
+            ]
+        }
+    };
+ 
+     void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>
+
+<meta itemprop="dateUpdate" content="2017-11-11 13:29:05">
+
+<meta name="keywords" content="html+css3实现照片墙,在职工作,职场就业,职场/理财">
+
+<meta name="description" content="html+css3实现照片墙,html+c3实现照片墙">
+<script type="text/javascript">!function(){var n={},e={};n.context=function(n,r){var t=arguments.length;if(t>1)e[n]=r;else if(1==t){if("object"!=typeof n)return e[n];for(var i in n)n.hasOwnProperty(i)&&(e[i]=n[i])}else if(0==t)return e},"F"in window||(window.F=n)}();;</script><!--[if lt IE 9]><script type="text/javascript" src="/static/common/tool/html5.js"></script><![endif]--><script>var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "//hm.baidu.com/hm.js?46c8852ae89f7d9526f0082fafa15edd"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s); })();</script><link rel="stylesheet" type="text/css" href="./日出_files/common_sync_css_0_2800bb1.css"><link rel="stylesheet" type="text/css" href="./日出_files/common_async_css_0_c8d78e9.css"><link rel="stylesheet" type="text/css" href="./日出_files/step_7a6faae.css"><link rel="stylesheet" type="text/css" href="./日出_files/redbox_9454f10.css"><link rel="stylesheet" type="text/css" href="./日出_files/favor_ee7602f.css"><link rel="stylesheet" type="text/css" href="./日出_files/common_498df33.css"><link rel="stylesheet" type="text/css" href="./日出_files/special-msg_d02dba8.css"><link rel="stylesheet" type="text/css" href="./日出_files/go-and-see_d818767.css"><link rel="stylesheet" type="text/css" href="./日出_files/douniwan_6ec14e6.css"><link rel="stylesheet" type="text/css" href="./日出_files/school2016_b4c6cb1.css"><link rel="stylesheet" type="text/css" href="./日出_files/badge_2385538.css"><link rel="stylesheet" type="text/css" href="./日出_files/super-2016_46f8488.css"><link rel="stylesheet" type="text/css" href="./日出_files/marathon_d00c0a0.css"><link rel="stylesheet" type="text/css" href="./日出_files/redbox-video_68a545b.css"><link rel="stylesheet" type="text/css" href="./日出_files/prize2017_99af780.css"><link rel="stylesheet" type="text/css" href="./日出_files/msg_8ee3316.css"><link rel="stylesheet" type="text/css" href="./日出_files/amazing-2016_b458231.css"><link rel="stylesheet" type="text/css" href="./日出_files/jquery-ui_d16d3c5.css"><script> 
+	if(typeof(alog) !== 'undefined') {
+		alog('speed.set', 'ht', +new Date); 
+	}
+</script></head>
+<body class="" style=""><header class="header" style="height: 92px;">
+<div class="top clearfix">
+<div class="top-left">
+<a href="http://jingyan.baidu.com/article/ff411625e9c92212e48237fc.html" class="back" log="type:2016,module:step,page:index,pos:header_back,action:click"></a>
+</div>
+<div class="top-right">
+<ul class="options clearfix">
+<li>
+<a href="javascript:;" id="vote-btn" class="vote" log="type:2016,module:step,page:index,pos:header_vote,action:click">
+<b class="num">11</b>
+<b class="hover-tip">投票</b>
+<b class="tip">已投票</b>
+</a>
+</li>
+<li>
+<a href="javascript:;" id="favor-btn" class="favor" log="type:2016,module:step,page:index,pos:header_favor,action:click">
+<b class="num">1</b>
+<b class="hover-tip">收藏+1</b>
+<b class="tip">已收藏</b>
+</a>
+</li>
+</ul>
+</div>
+<div class="title" id="exp-title" style="left: 215px;">
+<h1>
+html+css3实现照片墙
+<div class="audio-wp" data-title="" data-text="" data-for="" style="display: inline-block;">
+<span class="audio-inner">
+<span class="audio-icon"></span><span class="audio-icon-2"></span><span class="audio-icon-3"></span></span>
+<span class="desc">听语音</span>
+</div>
+</h1>
+</div>
+<form action="https://jingyan.baidu.com/search" name="step-search-form" method="get" id="step-search-form" class="step-search-form" style="display: block; left: 886px; width: 330px;">
+<input class="keyword" id="keyword" autocomplete="off" maxlength="256" tabindex="1" size="23" name="word" placeholder="请输入搜索内容" value="" style="width: 250px;">
+<input type="submit" class="submitBtn" value="搜索经验">
+</form>
+</div>
+</header>
+<div class="waiting-step-loading" id="waiting-step-loading" style="display: none;">
+<div class="tip-placehoder"></div>
+<div class="loading-tip">
+<p class="exp-tip">
+百度经验</p>
+<p class="loading-data-tip">
+页面数据加载中...</p>
+</div>
+</div>
+<section class="body-wrapper"><section class="body" id="body" style="height: 516px;">
+<div class="step-container">
+<div class="left-cover" id="left-cover" style="height: 516px; width: 215px;">
+<div class="previous-arrow"></div>
+</div>
+<div class="step-play-container" id="step-play-container" style="left: 215px;">
+<div class="step-play-list" id="step-play-list" style="left: -920px;">
+<div class="step-item-container step-item-brief clearfix" id="step-item-0">
+<div class="writer-info left" id="brief-writer-info" style="height: 514.902px;">
+<div class="place_holder" style="height: 13%"></div>
+<div class="writer-info-inner" style="height: 74%;position: relative">
+<div class="writer-portrait">
+<a href="https://jingyan.baidu.com/user/npublic?uid=258464fb627c987a8f694fec" target="_blank" title="missiing943" class="writer-portrait-container">
+<img src="./日出_files/80da6d69737369696e673934331931" title="missiing943" width="87px" height="87px" alt="missiing943">
+<div class="portrait-cover"></div>
+</a>
+</div>
+<div class="writer-basic">
+<div class="writer-basic-name">
+missiing943</div>
+<div class="icon-wrp">
+<div class="icon-huiz">
+<a class="u-icon cpm3" title="签约作者" href="https://jingyan.baidu.com/help?page=income-author" target="_blank" rel="nofollow"></a>
+</div>
+</div>
+</div>
+</div>
+<div class="place_holder" style="height: 13%"></div>
+</div>
+<div class="brief-info left">
+<div class="topright"></div>
+<div class="bottomright"></div>
+<div class="place_holder" style="height:9%"></div>
+<div class="brief-info-inner brief-info-inner-withoutimg clearfix" style="height: 70%">
+<div class="brief-info-text left">
+<span class="left-quote" id="brief-left-quote" style="top: 163.149px;"></span>
+<div class="step-text-wrapper brief-text-area" texttype="brief-text-area" id="step-text-wrapper-0" style="position: absolute; top: 163.149px;">
+<p>html+css3实现照片墙</p>
+</div>
+<span class="right-quote" id="brief-right-quote" style="display: block; bottom: 163.149px;"></span>
+</div>
+</div>
+<div class="place_holder" style="height: 15%"></div>
+</div>
+</div>
+<div class="step-item-container" id="step-item-1">
+<div class="place_holder" style="height:9%"></div>
+<div class="step-item-textimg-inner clearfix" style="height:82%">
+<section class="step-text-container left">
+<header>
+<h3 class="step-item-header">
+<span class="current-order-in-step">1</span>/6
+</h3>
+</header>
+<div class="step-text-wrapper img-text-area" texttype="img-text-area" id="step-text-wrapper-1">
+<p>准备好需要用到的图标。</p>
+</div>
+</section>
+<section class="step-img-container left">
+<div class="step-img-wrapper step-two-img step-two-img-top" steptype="step-two-img" imgloaded="2" style="height: 183.345px;">
+<div class="img-cover" style="height: 480px; width: 480px; margin-top: -148.5px;">
+<div class="inner-img-cover" data-src="8c511fe93901213f767afd915fe736d12e2e95f7" style="height: 480px; width: 480px;"></div>
+<img src="./日出_files/3bf33a87e950352a082896455843fbf2b2118b36.jpg" data-src="https://imgsa.baidu.com/exp/w=480/sign=979abb105efbb2fb342b591a7f4b2043/3bf33a87e950352a082896455843fbf2b2118b36.jpg" _height="480" _width="480"></div>
+</div>
+<div class="step-img-wrapper step-two-img" steptype="step-two-img" imgloaded="2" style="height: 183.345px;">
+<div class="img-cover" style="height: 480px; width: 480px; margin-top: -148.5px;">
+<div class="inner-img-cover" data-src="1cd4147b02087bf47e59e4a4f9d3572c10dfcf83" style="height: 480px; width: 480px;"></div>
+<img src="./日出_files/8b82b9014a90f60307052f0a3212b31bb151edc2.jpg" data-src="https://imgsa.baidu.com/exp/w=480/sign=f543bfa6bdfd5266a72b3d1c9b199799/8b82b9014a90f60307052f0a3212b31bb151edc2.jpg" _height="480" _width="480"></div>
+</div>
+</section>
+</div>
+<div class="place_holder" style="height: 9%"></div>
+</div>
+<div class="step-item-container" id="step-item-2">
+<div class="place_holder" style="height:9%"></div>
+<div class="step-item-textimg-inner clearfix" style="height:82%">
+<section class="step-text-container left">
+<header>
+<h3 class="step-item-header">
+<span class="current-order-in-step">2</span>/6
+</h3>
+</header>
+<div class="step-text-wrapper img-text-area" texttype="img-text-area" id="step-text-wrapper-2">
+<p>新建html文档。</p>
+</div>
+</section>
+<section class="step-img-container left">
+<div class="step-img-wrapper step-one-img" steptype="step-one-img" imgloaded="2" style="height: 379.864px;">
+<div class="img-cover" style="height: 322px; width: 480px; margin-top: 0px;">
+<div class="inner-img-cover" data-src="9a1151c2d56285353dac616c9bef76c6a6ef63f4" style="height: 322px; width: 480px;"></div>
+<img src="./日出_files/b17eca8065380cd7495211a0aa44ad345982812b.jpg" data-src="https://imgsa.baidu.com/exp/w=480/sign=48231e5f790e0cf3a0f74ff33a47f23d/b17eca8065380cd7495211a0aa44ad345982812b.jpg" _height="322" _width="480"></div>
+</div>
+</section>
+</div>
+<div class="place_holder" style="height: 9%"></div>
+</div>
+<div class="step-item-container" id="step-item-3">
+<div class="place_holder" style="height:9%"></div>
+<div class="step-item-textimg-inner clearfix" style="height:82%">
+<section class="step-text-container left">
+<header>
+<h3 class="step-item-header">
+<span class="current-order-in-step">3</span>/6
+</h3>
+</header>
+<div id="tangram-scrollpanel--TANGRAM$3-main" class="tangram-scrollpanel-main" data-guid="TANGRAM$3" style="width: 270px; height: 417px;"><div id="tangram-scrollpanel--TANGRAM$3" class="tangram-scrollpanel"><div id="tangram-scrollpanel--TANGRAM$3-panel" class="tangram-scrollpanel-panel" style="float: left;"><div class="step-text-wrapper img-text-area" texttype="img-text-area" id="step-text-wrapper-3" style="height: 376px; width: 261px;">
+<p>书写hmtl代码。</p><p>&lt;ul class="polaroids"&gt;</p><p>			&lt;li&gt;&lt;a href="#" title="Roelan"&gt;&lt;img src="images/image-01.jpg" alt="Roeland!"&gt;&lt;/a&gt;&lt;/li&gt;</p><p>			&lt;li&gt;&lt;a href="#" title="Discus"&gt;&lt;img src="images/image-02.jpg" alt="Discussion"&gt;&lt;/a&gt;&lt;/li&gt;</p><p>			&lt;li&gt;&lt;a href="#" title="A Hear"&gt;&lt;img src="images/image-01.jpg" alt="A Hearty Laugh"&gt;&lt;/a&gt;&lt;/li&gt;</p><p>			&lt;li&gt;&lt;a href="#" title="Evil M"&gt;&lt;img src="images/image-02.jpg" alt="Evil Matt Coding"&gt;&lt;/a&gt;&lt;/li&gt;</p><p>			&lt;li&gt;&lt;a href="#" title="Scribb"&gt;&lt;img src="images/image-01.jpg" alt="Scribbles"&gt;&lt;/a&gt;&lt;/li&gt;</p><p>			&lt;li&gt;&lt;a href="#" title="Amanda"&gt;&lt;img src="images/image-02.jpg" alt="Amanda Glares..."&gt;&lt;/a&gt;&lt;/li&gt;</p><p>			&lt;li&gt;&lt;a href="#" title="The Do"&gt;&lt;img src="images/image-01.jpg" alt="The Dougernaut"&gt;&lt;/a&gt;&lt;/li&gt;</p><p>			&lt;li&gt;&lt;a href="#" title="I See "&gt;&lt;img src="images/image-02.jpg" alt="I See You!"&gt;&lt;/a&gt;&lt;/li&gt;</p><p>			&lt;li&gt;&lt;a href="#" title="Rock H"&gt;&lt;img src="images/image-01.jpg" alt="Rock Hard Balls"&gt;&lt;/a&gt;&lt;/li&gt;</p><p>			&lt;li&gt;&lt;a href="#" title="Bocce "&gt;&lt;img src="images/image-02.jpg" alt="Bocce Ball"&gt;&lt;/a&gt;&lt;/li&gt;</p><p>			&lt;li&gt;&lt;a href="#" title="Boris "&gt;&lt;img src="images/image-01.jpg" alt="Boris "Tatooine""&gt;&lt;/a&gt;&lt;/li&gt;</p><p>			&lt;li&gt;&lt;a href="#" title="Sneake"&gt;&lt;img src="images/image-02.jpg" alt="Sneakers &amp; Stilettos"&gt;&lt;/a&gt;&lt;/li&gt;</p><p>		&lt;/ul&gt;</p><p>		&lt;ul class="polaroids" style="width:280px;"&gt;</p><p>			&lt;li&gt;&lt;a href="#" title="Roelan"&gt;&lt;img src="images/image-01.jpg" alt="Roeland!"&gt;&lt;/a&gt;&lt;/li&gt;</p><p>			&lt;li&gt;&lt;a href="#" title="Discus"&gt;&lt;img src="images/image-02.jpg" alt="Discussion"&gt;&lt;/a&gt;&lt;/li&gt;</p><p>			&lt;li class="messy"&gt;&lt;a href="#" title="A Hear"&gt;&lt;img src="images/image-01.jpg" alt="A Hearty Laugh"&gt;&lt;/a&gt;&lt;/li&gt;</p><p>		&lt;/ul&gt;</p>
+</div></div><div id="tangram-scrollpanel--TANGRAM$3-overflow-y" class="tangram-scrollpanel-overflow-y" data-guid="TANGRAM$4" style="float: left; width: 9px; height: 376px;"><div id="tangram-scrollbar--TANGRAM$4" class="tangram-scrollbar scrollbar-y" data-guid="TANGRAM$6" style=""><div id="tangram-button--TANGRAM$5" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$5&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$5&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$5&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$5&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$5&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="tangram-scrollbar-prev scrollbar-y-prev"></div><div id="tangram-scrollbar--TANGRAM$4-track" class="tangram-scrollbar-track scrollbar-y-track" data-guid="TANGRAM$7" style="height: 376px;"><div id="tangram-slider--TANGRAM$7" class="tangram-scrollbar-slider scrollbar-y-slider" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$7&#39;]._mouseDown(event)" style="position:relative;"><div id="tangram-slider--TANGRAM$7-thumb" class="tangram-scrollbar-slider-thumb scrollbar-y-slider-thumb" style="position: absolute; top: 0px; height: 26%;" data-guid="TANGRAM$8"><div id="tangram-button--TANGRAM$8" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$8&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$8&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$8&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$8&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$8&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="tangram-scrollbar-thumb-btn scrollbar-y-thumb-btn"><div class="tangram-scrollbar-thumb-prev scrollbar-y-thumb-prev"></div><div class="tangram-scrollbar-thumb-track scrollbar-y-thumb-track"></div><div class="tangram-scrollbar-thumb-next scrollbar-y-thumb-next"></div></div></div></div></div><div id="tangram-button--TANGRAM$6" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$6&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$6&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$6&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$6&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$6&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="tangram-scrollbar-next scrollbar-y-next"></div></div></div></div></div>
+</section>
+<section class="step-img-container left">
+<div class="step-img-wrapper step-one-img" steptype="step-one-img" imgloaded="0" style="height: 379.864px;">
+<div class="img-cover">
+<div class="inner-img-cover" data-src="6a22e8246b600c331e456c85114c510fd9f9a104"></div>
+<img src="./日出_files/exp_loading.gif" data-src="https://imgsa.baidu.com/exp/w=480/sign=1b27488115178a82ce3c7ea8c603737f/10dfa9ec8a136327fbd1707e9a8fa0ec08fac7bb.jpg"></div>
+</div>
+</section>
+</div>
+<div class="place_holder" style="height: 9%"></div>
+</div>
+<div class="step-item-container" id="step-item-4">
+<div class="place_holder" style="height:9%"></div>
+<div class="step-item-textimg-inner clearfix" style="height:82%">
+<section class="step-text-container left">
+<header>
+<h3 class="step-item-header">
+<span class="current-order-in-step">4</span>/6
+</h3>
+</header>
+<div id="tangram-scrollpanel--TANGRAM$9-main" class="tangram-scrollpanel-main" data-guid="TANGRAM$9" style="width: 270px; height: 417px;"><div id="tangram-scrollpanel--TANGRAM$9" class="tangram-scrollpanel"><div id="tangram-scrollpanel--TANGRAM$9-panel" class="tangram-scrollpanel-panel" style="float: left;"><div class="step-text-wrapper img-text-area" texttype="img-text-area" id="step-text-wrapper-4" style="height: 376px; width: 261px;">
+<p>书写css代码。</p><p>body { font-family: Tahoma, Helvetica, "\5b8b\4f53", "Arial", sans-serif; font-size: 12px; color: #fff; }</p><p>body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td { margin: 0; padding: 0 }</p><p>input, button, textarea { border: none 0 }</p><p>fieldset, img { border: 0 }</p><p>table { border-collapse: collapse; border-spacing: 0 }</p><p>ul, ol { list-style: none }</p><p>a:link { text-decoration: none }</p><p>a:visited { text-decoration: none }</p><p>a:hover { text-decoration: none }</p><p>.clear { zoom: 1 }</p><p>.clear:after { content: ""; display: block; clear: both }</p><p>.polaroids { width: 970px; margin: 0 0 18px 10px; }</p><p>.polaroids li { display: inline; }</p><p>.polaroids a { background: #fff; display: inline; float: left; margin: 0 0 27px 30px; width: auto; padding: 10px 10px 15px; text-align: center; font-family: "Marker Felt", sans-serif; text-decoration: none; color: #333; font-size: 18px; -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25); -moz-box-shadow: 0 3px 6px rgba(0,0,0,.25); -o-box-shadow: 0 3px 6px rgba(0,0,0,.25); box-shadow: 0 3px 6px rgba(0,0,0,.25); }</p><p>.polaroids img { display: block; width: 190px; margin-bottom: 12px; }</p><p>.polaroids a:after { content: attr(title); }</p><p>.polaroids li:nth-child(even) a { -webkit-transform: rotate(2deg); -moz-transform: rotate(2deg); -ms-transform: rotate(2deg); transform: rotate(2deg); }</p><p>.polaroids li:nth-child(3n) a { -webkit-transform: none; -moz-transform: none; -ms-transform: rotate(2deg); transform: none; position: relative; top: -5px; }</p><p>.polaroids li:nth-child(5n) a { -webkit-transform: rotate(5deg); -moz-transform: rotate(5deg); -ms-transform: rotate(5deg); transform: rotate(5deg); position: relative; right: 5px; }</p><p>.polaroids li:nth-child(8n) a { position: relative; top: 8px; right: 5px; }</p><p>.polaroids li:nth-child(11n) a { position: relative; top: 3px; right: -5px; }</p><p>.polaroids li a:hover { -webkit-transform: scale(1.25); -moz-transform: scale(1.25); -ms-transform: scale(1.25); transform: scale(1.25); -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.5); -moz-box-shadow: 0 3px 6px rgba(0,0,0,.5); -o-box-shadow: 0 3px 6px rgba(0,0,0,.5); box-shadow: 0 3px 6px rgba(0,0,0,.5); position: relative; z-index: 5; }</p><p>.polaroids li.messy a { margin-top: -375px; margin-left: 160px; -webkit-transform: rotate(-5deg); -moz-transform: rotate(-5deg); -ms-transform: rotate(-5deg); transform: rotate(-5deg); }</p>
+</div></div><div id="tangram-scrollpanel--TANGRAM$9-overflow-y" class="tangram-scrollpanel-overflow-y" data-guid="TANGRAM$10" style="float: left; width: 9px; height: 376px;"><div id="tangram-scrollbar--TANGRAM$10" class="tangram-scrollbar scrollbar-y" data-guid="TANGRAM$12" style=""><div id="tangram-button--TANGRAM$11" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$11&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$11&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$11&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$11&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$11&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="tangram-scrollbar-prev scrollbar-y-prev"></div><div id="tangram-scrollbar--TANGRAM$10-track" class="tangram-scrollbar-track scrollbar-y-track" data-guid="TANGRAM$13" style="height: 376px;"><div id="tangram-slider--TANGRAM$13" class="tangram-scrollbar-slider scrollbar-y-slider" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$13&#39;]._mouseDown(event)" style="position:relative;"><div id="tangram-slider--TANGRAM$13-thumb" class="tangram-scrollbar-slider-thumb scrollbar-y-slider-thumb" style="position: absolute; top: 0px; height: 20%;" data-guid="TANGRAM$14"><div id="tangram-button--TANGRAM$14" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$14&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$14&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$14&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$14&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$14&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="tangram-scrollbar-thumb-btn scrollbar-y-thumb-btn"><div class="tangram-scrollbar-thumb-prev scrollbar-y-thumb-prev"></div><div class="tangram-scrollbar-thumb-track scrollbar-y-thumb-track"></div><div class="tangram-scrollbar-thumb-next scrollbar-y-thumb-next"></div></div></div></div></div><div id="tangram-button--TANGRAM$12" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$12&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$12&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$12&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$12&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$12&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="tangram-scrollbar-next scrollbar-y-next"></div></div></div></div></div>
+</section>
+<section class="step-img-container left">
+<div class="step-img-wrapper step-one-img" steptype="step-one-img" imgloaded="0" style="height: 379.864px;">
+<div class="img-cover">
+<div class="inner-img-cover" data-src="0865b518972bd407070e60b070899e510eb30976"></div>
+<img src="./日出_files/exp_loading.gif" data-src="https://imgsa.baidu.com/exp/w=480/sign=1f0166839225bc312b5d00906ede8de7/3ac79f3df8dcd10088554b6c798b4710b8122fb5.jpg"></div>
+</div>
+</section>
+</div>
+<div class="place_holder" style="height: 9%"></div>
+</div>
+<div class="step-item-container" id="step-item-5">
+<div class="place_holder" style="height:9%"></div>
+<div class="step-item-textimg-inner clearfix" style="height:82%">
+<section class="step-text-container left">
+<header>
+<h3 class="step-item-header">
+<span class="current-order-in-step">5</span>/6
+</h3>
+</header>
+<div class="step-text-wrapper img-text-area" texttype="img-text-area" id="step-text-wrapper-5">
+<p>代码整体结构。</p>
+</div>
+</section>
+<section class="step-img-container left">
+<div class="step-img-wrapper step-one-img" steptype="step-one-img" imgloaded="0" style="height: 379.864px;">
+<div class="img-cover">
+<div class="inner-img-cover" data-src="42e89c26cffc1e17db8f3e7c4190f603738de908"></div>
+<img src="./日出_files/exp_loading.gif" data-src="https://imgsa.baidu.com/exp/w=480/sign=741212b7dac8a786be2a4b065708c9c7/962bd40735fae6cd2a84192c04b30f2442a70f4e.jpg"></div>
+</div>
+</section>
+</div>
+<div class="place_holder" style="height: 9%"></div>
+</div>
+<div class="step-item-container" id="step-item-6">
+<div class="place_holder" style="height:9%"></div>
+<div class="step-item-textimg-inner clearfix" style="height:82%">
+<section class="step-text-container left">
+<header>
+<h3 class="step-item-header">
+<span class="current-order-in-step">6</span>/6
+</h3>
+</header>
+<div class="step-text-wrapper img-text-area" texttype="img-text-area" id="step-text-wrapper-6">
+<p>查看效果。</p>
+</div>
+</section>
+<section class="step-img-container left">
+<div class="step-img-wrapper step-one-img" steptype="step-one-img" imgloaded="0" style="height: 379.864px;">
+<div class="img-cover">
+<div class="inner-img-cover" data-src="b74124f33a87e9509b1641211b385343fbf2b43f"></div>
+<img src="./日出_files/exp_loading.gif" data-src="https://imgsa.baidu.com/exp/w=480/sign=0fb700ab2c7f9e2f70351c002f31e962/91529822720e0cf379f6fcb60146f21fbe09aa7e.jpg"></div>
+</div>
+</section>
+</div>
+<div class="place_holder" style="height: 9%"></div>
+</div>
+<div class="step-item-container step-item-recommand" id="step-item-7">
+<div class="place_holder" style="height:9%"></div>
+<div class="step-recommand-inner" style="height: 72%;">
+<div class="replay">
+<dl class="clearfix">
+<dt class="replay-img left">
+<a class="replay-img-container" href="javascript:;" id="replay-step-e">
+<img class="recommand-img" alt="html+css3实现照片墙" src="./日出_files/exp_loading.gif" data-src="https://imgsa.baidu.com/exp/whcrop=160,120/sign=cf9dbf7c2a3fb80e0c84379559a1121f/3bf33a87e950352a082896455843fbf2b2118b36.jpg" width="160px" height="120px">
+<div class="img-border"></div>
+</a>
+</dt>
+<dd class="replay-title left">
+<h4>
+html+css3实现照片墙
+</h4>
+<a href="javascript:;" id="replay-step" class="replay-step">[重新阅读]</a>
+</dd>
+</dl>
+</div>
+<div class="recommand-list clearfix" id="recommend-list-container"></div>
+</div>
+<div class="place_holder" style="height: 14%"></div>
+</div></div>
+</div>
+<div class="right-cover" id="right-cover" style="height: 516px; width: 231px;">
+<div class="next-arrow"></div>
+</div>
+</div>
+</section></section><footer class="footer">
+<script>
+    void function(e,t){for(var n=t.getElementsByTagName("img"),a=+new Date,i=[],o=function(){this.removeEventListener&&this.removeEventListener("load",o,!1),i.push({img:this,time:+new Date})},s=0;s< n.length;s++)!function(){var e=n[s];e.addEventListener?!e.complete&&e.addEventListener("load",o,!1):e.attachEvent&&e.attachEvent("onreadystatechange",function(){"complete"==e.readyState&&o.call(e,o)})}();alog("speed.set",{fsItems:i,fs:a})}(window,document);
+</script>
+<div class="step-pager" id="step-pager">
+<ul id="step-pager-list" class="clearfix" style="width: 360px;"><li class="item step" style="display: block;"><a href="javascript:;" class="step-cover" step-index="0">封</a></li><li class="item step" style="display: block;"><a href="javascript:;" class="preview current" data="准备好需要用到的图标。" data-type="0" step-index="1">1</a></li><li class="item step" style="display: block;"><a href="javascript:;" class="preview" data="新建html文档。" data-type="0" step-index="2">2</a></li><li class="item step" style="display: block;"><a href="javascript:;" class="preview" data="书写hmtl代码。&lt;ul class=&amp;q..." data-type="0" step-index="3">3</a></li><li class="item step" style="display: block;"><a href="javascript:;" class="preview" data="书写css代码。body { font-fami..." data-type="0" step-index="4">4</a></li><li class="item step" style="display: block;"><a href="javascript:;" class="preview" data="代码整体结构。" data-type="0" step-index="5">5</a></li><li class="item step" style="display: block;"><a href="javascript:;" class="preview" data="查看效果。" data-type="0" step-index="6">6</a></li><li class="item step" style="display: block;"><a href="javascript:;" class="step-last" step-index="7">尾</a></li></ul>
+</div>
+</footer>
+<script type="text/javascript">
+    (function() {
+        //解决ie图片缓存闪烁问题
+        try {
+            document.execCommand("BackgroundImageCache", false, true);
+        } catch(err) {}
+    })();
+    //异步接口集
+    F.context({
+        //与个人相关
+        'submit_follow' : '/submit/follow',
+        'submit_vote' : '/submit/vote',
+        'submit_author' : '/submit/author',
+        'submit_user' : '/submit/user',
+        'submit_favor' : '/submit/favor',
+        'submit_notice' : '/submit/notice',
+        //公共的异步接口部分
+        'common_isLogin' : '/common/isLogin',
+        'common_isVersionExist' : '/common/isVersionExist',
+        'common_isTitleValid' : '/common/isTitleValid',
+        'common_needToTitle' : '/common/needToTitle',
+        'asyncreq' : '/asyncreq',
+        //评论相关
+        'cid' : '99',
+        'submit_comment' : '/submit/comment',
+        'submit_feedback' : '/submit/exp'
+    });
+</script>
+
+<script type="text/javascript">
+        F.context({
+            "BdStoken" : "bf2f06880d17b94b7ca4bf2276c9d461",
+            "bdstt" : "1555768483",
+        });
+        F.context('BFEType', '2');
+    </script>
+<script>
+	if(typeof(alog) !== 'undefined'){
+    	alog('speed.set', 'drt', +new Date); 
+    }//请利用js框架在domreday时调用该代码，或在body的尾部
+</script>
+<script>
+    void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("speed.set","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d,k&&l&&l>k||(g(function(){alog("speed.set","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","/hunter/alog/dp.min.js");
+</script>
+<script type="text/javascript" src="./日出_files/common_sync_js_0_a73d02f.js.下载"></script>
+<script type="text/javascript">require.resourceMap({"res":{"common-jquery:widget/lib/jquery/jquery.js":{"url":"//exp.bdstatic.com/static/common-jquery/widget/lib/jquery/jquery_250bf24.js","pkg":"common-jquery:p1"},"common:widget/lib/tangram/fx/move/move.js":{"url":"//exp.bdstatic.com/static/common/widget/lib/tangram/fx/move/move_4f6a3cf.js","pkg":"common:p1","deps":["common:widget/lib/tangram/base/base.js","common:widget/lib/tangram/fx/create/create.js"]},"common:widget/ui/red-bao/red-bao.js":{"url":"//exp.bdstatic.com/static/common/widget/ui/red-bao/red-bao_d2adb02.js","pkg":"common:p11","deps":["common:widget/lib/tangram/base/base.js","common:widget/ui/dialog/dialog.js"]},"common:widget/lib/tangram/ui/Carousel/Carousel.js":{"url":"//exp.bdstatic.com/static/common/widget/lib/tangram/ui/Carousel/Carousel_9ed0987.js","pkg":"common:p2","deps":["common:widget/lib/tangram/base/base.js","common:widget/lib/tangram/uiBase/uiBase.js"]},"activity:widget/ui/redbox/redbox.js":{"url":"//exp.bdstatic.com/static/activity/widget/ui/redbox/redbox_58a8c80.js","pkg":"activity:p2","deps":["common:widget/lib/tangram/base/base.js","common:widget/ui/dialog/dialog.js"]},"common-jquery:widget/lib/baidutemplate/baidutemplate.min.js":{"url":"//exp.bdstatic.com/static/common-jquery/widget/lib/baidutemplate/baidutemplate.min_d875663.js","pkg":"common-jquery:p3"},"common-jquery:widget/js/ui/base/base.js":{"url":"//exp.bdstatic.com/static/common-jquery/widget/js/ui/base/base_366a7b8.js","pkg":"common-jquery:p2","deps":["common-jquery:widget/lib/jquery/jquery.js","common-jquery:widget/js/util/event/event.js"]},"common:widget/lib/tangram/base/base.js":{"url":"//exp.bdstatic.com/static/common/widget/lib/tangram/base/base_e37cc01.js","pkg":"common:p0"},"step:widget/header/header.js":{"url":"//exp.bdstatic.com/static/step/widget/header/header_6f356a6.js","pkg":"step:p0","deps":["common:widget/lib/tangram/base/base.js","common:widget/lib/fis/event/event.js","common:widget/ui/log/log.js","common-jquery:widget/lib/jquery/jquery.js","common-jquery:widget/js/logic/text2audio/text2audio.es"]}}});</script><script type="text/javascript" src="./日出_files/common_async_js_0_28055ad.js.下载"></script>
+<script type="text/javascript" src="./日出_files/common_sync_js_1_b781a69.js.下载"></script>
+<script type="text/javascript" src="./日出_files/common_sync_js_2_fa2e9a7.js.下载"></script>
+<script type="text/javascript" src="./日出_files/monitor-js_f5d377f.js.下载"></script>
+<script type="text/javascript" src="./日出_files/framework_d2de9ff.js.下载"></script>
+<script type="text/javascript" src="./日出_files/shimingzhi_4f92ad8.js.下载"></script>
+<script type="text/javascript" src="./日出_files/more_158a9f7.js.下载"></script>
+<script type="text/javascript" src="./日出_files/base_783cdfb.js.下载"></script>
+<script type="text/javascript" src="./日出_files/error_ed451a4.js.下载"></script>
+<script type="text/javascript" src="./日出_files/audio-list_c5345f0.js.下载"></script>
+<script type="text/javascript" src="./日出_files/text2audio_56668f7.js.下载"></script>
+<script type="text/javascript" src="./日出_files/return_60f55cc.js.下载"></script>
+<script type="text/javascript" src="./日出_files/step_3b906e7.js.下载"></script>
+<script type="text/javascript">!function(){require.async('common:widget/baidu-tongji/baidu-tongji.js', function(b){ b.init('23954615444132775506'); });}();
+!function(){require.async('common:widget/monitor-js/monitor-js.js', function (monitorJs) { monitorJs(); });}();
+!function(){    require.async('step:widget/header/header.js', function (header) {
+        header.init();
+    });
+}();
+!function(){    require.async('step:widget/ui/brand-ads/brand-ads.js',function(ad_log){
+        ad_log.init('');
+    });
+}();
+!function(){    require.async(['common:widget/lib/tangram/base/base.js', 'step:widget/pager/pager.js'], function(T, pager){
+        T.dom.ready(function(){
+            pager.init(0);
+        });
+    });
+}();
+!function(){        F.context({
+            //请求地址
+            "common":'/common',
+            "uoper": '/uoperation',
+            "edit": '/edit/',
+            "logo": 'http://img.baidu.com/img/iknow/exp/logo_uui.jpg',
+            "comment": '/comment/',
+                            "hi": 'https://imgsa.baidu.com/exp/abpic/item/',//空间缩略图片地址
+                        "ucFollowing": '/user/nuc/following',
+            "ucFavorexp": '/user/nuc/favorexp',
+            "title": 'html+css3实现照片墙',
+            "isLogin" : 0,
+            "username": '',
+            "writerId": '',
+            "maxFollowVote": 9999999,
+            "eid": 'ff411625e9c92212e48237fc',
+            "isFavor":0,
+            "expFavorNum": 1,
+            "feedbackSuc": 10,
+            "MAX_SUC_FAIL_TIMES": 999999,
+            "stepPic": {"amount":7,"stepPic":[{"src":"https:\/\/imgsa.baidu.com\/exp\/pic\/item\/8c511fe93901213f767afd915fe736d12e2e95f7.jpg","stepIndex":1,"picIndex":1,"picIndexInStep":1,"type":"step"},{"src":"https:\/\/imgsa.baidu.com\/exp\/pic\/item\/1cd4147b02087bf47e59e4a4f9d3572c10dfcf83.jpg","stepIndex":1,"picIndex":2,"picIndexInStep":2,"type":"step"},{"src":"https:\/\/imgsa.baidu.com\/exp\/pic\/item\/9a1151c2d56285353dac616c9bef76c6a6ef63f4.jpg","stepIndex":2,"picIndex":3,"picIndexInStep":1,"type":"step"},{"src":"https:\/\/imgsa.baidu.com\/exp\/pic\/item\/6a22e8246b600c331e456c85114c510fd9f9a104.jpg","stepIndex":3,"picIndex":4,"picIndexInStep":1,"type":"step"},{"src":"https:\/\/imgsa.baidu.com\/exp\/pic\/item\/0865b518972bd407070e60b070899e510eb30976.jpg","stepIndex":4,"picIndex":5,"picIndexInStep":1,"type":"step"},{"src":"https:\/\/imgsa.baidu.com\/exp\/pic\/item\/42e89c26cffc1e17db8f3e7c4190f603738de908.jpg","stepIndex":5,"picIndex":6,"picIndexInStep":1,"type":"step"},{"src":"https:\/\/imgsa.baidu.com\/exp\/pic\/item\/b74124f33a87e9509b1641211b385343fbf2b43f.jpg","stepIndex":6,"picIndex":7,"picIndexInStep":1,"type":"step"}]},
+            "BdStoken" : "bf2f06880d17b94b7ca4bf2276c9d461",
+            "bdstt" : "1555768483",
+            'typeId': 2016
+        });
+        
+        require.async(["common:widget/lib/tangram/base/base.js", "step:widget/ui/adjust-size/adjust-size.js", "step:widget/ui/step-album/step-album.js", "step:widget/ui/vote-favor/vote-favor.js", "step:widget/ui/user-guide/user-guide.js", "common:widget/ui/log/log.js"], function(T, adjustSize, stepAlbum, header, userGuide, log){
+            T.dom.ready(function(){
+                if(T.browser.ie && T.browser.ie == 6){
+                    T.dom.setStyle("waiting-step-loading", "height", T.page.getViewHeight()-75);
+                }
+                if(F.context('isBrandAd')){
+                    adjustSize.init({
+                        'img-text-area-withhead':{
+                            height: 360,
+                            width:270,
+                            spaceHeight:107
+                        }
+                    });
+                }else{
+                    adjustSize.init();
+                }
+                
+                adjustSize.resize(1);
+                T.hide("waiting-step-loading");
+                T.on(window, "resize", function(){
+                    adjustSize.resize();
+                });
+                userGuide.init();
+                stepAlbum.init();
+                header.init("vote-btn", "favor-btn", F.context("isFavor"));
+
+                log.init({
+                    query : 'a',        //需要绑定的标签元素，可选，默认为a标签
+                    evtType : 'click',   //鼠标事件定义，可选，默认是click
+                    type: F.context('typeId'),
+                    page: 'step'
+                });
+
+                //左侧推广位
+                /*LeftPromotion.init({
+                    imgSrc: 'http://jingyan.baidu.com/event/img/hb92X240.gif',
+                    url: 'http://jingyan.baidu.com/activity/hongbao201411?fr=step',
+                    target: 'step-play-container'
+                });*/
+            });
+        });
+    }();
+!function(){        require.async('common-jquery:widget/js/logic/https/https.es', function (https) {
+            // 自动修复https里的超链接
+            https.autoFixAnchor();
+        });
+    }();
+!function(){    function monitorHTTPWarning(ignore) {
+        var cache = {};
+
+        var selector = ['link', 'script', 'img', 'embed', 'iframe'];
+        var knownHost = ['jingyan.baidu.com', 'hm.baidu.com', 'exp.bdstatic.com', 'himg.bdimg.com', 'img.baidu.com', 'kstj.baidu.com', 'hiphotos.baidu.com'];
+
+        function monitor() {
+            selector.reduce(function (partial, v) {
+                var arr = document.getElementsByTagName(v);
+                for (var i = 0, len = arr.length; i < len; i++) {
+                    partial.push(arr[i]);
+                }
+                return partial;
+            }, [])
+            .forEach(function (v) {
+                var url = v.href || v.src || '';
+                // 只统计http开头
+                if (url.indexOf('http:') !== 0) {
+                    return 1;
+                }
+
+                // 避免重复发请求
+                if (cache[url]) {
+                    cache[url] += 1;
+                    return 2;
+                }
+                
+                // 忽略已知域名
+                if (ignore && knownHost.some(function (v) {return ~url.indexOf(v)})) {
+                    return 3;
+                }
+                cache[url] = 1;
+                var img = new Image();
+                img.src = '//kstj.baidu.com/v.gif?'
+                    + 'pid=180&type=2000&module=common&page=https&action=warning&t=' + Date.now()
+                    + '&curl=' + encodeURIComponent(location.href)
+                    + '&rurl=' + encodeURIComponent(url)
+            });
+        }
+
+        // 1 8 27 64 125
+        for(var i = 1; i < 6; i++) {
+            (function (i){
+                setTimeout(function(){
+                    monitor();
+                }, i*i*i*1000);
+            })(i);
+        }
+    }
+
+    if (Math.floor(Math.random() * 100) < 100) {
+        monitorHTTPWarning(0);
+    }
+}();
+!function(){    require.async('common-jquery:widget/lasting-time/lasting-time.es', function (LastingTime) {
+        new LastingTime();
+    });
+}();</script>
+<script> var _trace_page_logid = 3283315182; </script><div id="album-box-layerundefined" class="album-box-layer" hasshown="shown"></div><div id="album-boxundefined" class="album-box" style="top: 0px;"><a class="close-btn" title="关闭相册"></a><div id="album-box-contentundefined" class="album-box-content" style="text-align: center;"><img id="currentAlbumImgundefined" src="./日出_files/1cd4147b02087bf47e59e4a4f9d3572c10dfcf83.jpg" style="margin-top: 40px;"></div><div id="left-areaundefined" class="left-area" style="width: 50%; height: 580px;"></div><div id="right-areaundefined" class="right-area" style="width: 50%; height: 580px;"></div><div id="album-box-bottomundefined" class="album-box-bottom"><div class="album-playlist-container" id="album-playlist-containerundefined" style="width:385px"><div class="album-playlist"><img src="./日出_files/8c511fe93901213f767afd915fe736d12e2e95f7.jpg" class="" _width="500" _height="500" loaded="1" style=""><img src="./日出_files/1cd4147b02087bf47e59e4a4f9d3572c10dfcf83.jpg" style="" class="current" _width="500" _height="500" loaded="1"><img src="./日出_files/9a1151c2d56285353dac616c9bef76c6a6ef63f4.jpg" style=""><img src="./日出_files/6a22e8246b600c331e456c85114c510fd9f9a104.jpg" style=""><img src="./日出_files/0865b518972bd407070e60b070899e510eb30976.jpg" style=""><img src="./日出_files/42e89c26cffc1e17db8f3e7c4190f603738de908.jpg" style="display: none;"><img src="./日出_files/b74124f33a87e9509b1641211b385343fbf2b43f.jpg" style="display: none;"></div></div></div></div></body></html>

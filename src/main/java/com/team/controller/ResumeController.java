@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -86,7 +85,7 @@ public class ResumeController{
 	@ApiImplicitParams({
 		@ApiImplicitParam(name="resumeId",value="简历id(必须)",dataType="int",paramType="query")
 	})
-	public Msg selectOneResume(@PathVariable(value="resumeId") Integer resumeId) {
+	public Msg selectOneResume(@RequestParam(value="resumeId") Integer resumeId) {
 		return Msg.success().add("Resume", resumeService.selectOneResume(resumeId));
 	}
 	
@@ -96,6 +95,7 @@ public class ResumeController{
 	@ApiImplicitParams({
 		@ApiImplicitParam(name="resumeId",value="简历id(必须)",dataType="int",paramType="query")
 	})
+	
 	public Msg deleteResume(@RequestParam(value="resumeId")Integer resumeId) {
 		resumeService.deleteResume(resumeId);
 		return Msg.success();

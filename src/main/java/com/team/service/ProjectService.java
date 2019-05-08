@@ -17,7 +17,9 @@ public class ProjectService {
 	public void saveProject(Project project) {
 		projectMapper.insertSelective(project);
 	}
-	
+	public int getprojectId() {
+		return projectMapper.selectprojectId();
+	}
 	public void deleteProject(Integer projectId) {
 		projectMapper.deleteByPrimaryKey(projectId);
 	}

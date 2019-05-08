@@ -100,12 +100,13 @@
     where award_id = #{awardId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMapWithPirture">
-    select *
-    from tbl_award a left join tbl_award_pirture ap
-    on a.award_id = ap.award_id
+   SELECT * FROM tbl_award
   </select>
   <select id="selectOne" resultMap="BaseResultMapWithPirture">
-    SELECT * FROM tbl_award a INNER JOIN tbl_award_pirture ap ON a.life_id=#{awardId,jdbcType=INTEGER}
+   SELECT * FROM tbl_award a INNER JOIN tbl_award_pirture ap ON a.award_id=ap.award_id AND a.award_id=#{awardId,jdbcType=INTEGER}
+  </select>
+  <select id="selectawardId"  resultType="java.lang.Integer">
+    SELECT award_id FROM tbl_award ORDER BY award_id DESC LIMIT 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tbl_award

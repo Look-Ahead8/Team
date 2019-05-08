@@ -31,4 +31,6 @@ public interface AwardMapper {
     int updateByPrimaryKeySelective(Award record);
 
     int updateByPrimaryKey(Award record);
+
+	int selectawardId();
 }

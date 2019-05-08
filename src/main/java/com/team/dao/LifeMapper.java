@@ -3,6 +3,8 @@ package com.team.dao;
 import com.team.bean.Life;
 import com.team.bean.LifeExample;
 import java.util.List;
+
+
 import org.apache.ibatis.annotations.Param;
 
 public interface LifeMapper {
@@ -15,6 +17,10 @@ public interface LifeMapper {
     int insert(Life record);
 
     int insertSelective(Life record);
+    
+    int insertone(Life record);
+    
+    int selectlifeId();
 
     List<Life> selectByExample(LifeExample example);
 

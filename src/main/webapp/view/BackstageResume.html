@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>后台简历</title>
+    <script src="/Team/lib/jquery-3.3.1.js"></script>
+    <link href="/Team/static/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="/Team/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .bg {
+            background: #F1F3F4;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 模态框 -->
+    <div class="modal fade" id="showresume" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">查看简历</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="myform">
+                        <div class="form-group">
+                            <label for="studentNo" class="col-sm-2 control-label">学号</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="studentNo" readonly="readonly">
+                                <span id="helpBlock" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="direction" class="col-sm-2 control-label">方向</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="direction" readonly="readonly">
+                                <span id="helpBlock" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade" class="col-sm-2 control-label">班级</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="grade" readonly="readonly">
+                                <span id="helpBlock" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phonenumber" class="col-sm-2 control-label">电话号码</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="phonenumber" readonly="readonly">
+                                <span id="helpBlock" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="profession" class="col-sm-2 control-label">专业</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="profession" readonly="readonly">
+                                <span id="helpBlock" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="wechat" class="col-sm-2 control-label">微信</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="wechat" readonly="readonly">
+                                <span id="helpBlock" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="evaluation" class="col-sm-2 control-label">自我评价</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" cols="60" rows="5" id="evaluation"
+                                    readonly="readonly"></textarea>
+                                <span id="helpBlock" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="skills" class="col-sm-2 control-label">技能</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" cols="60" rows="5" id="skills"
+                                    readonly="readonly"></textarea>
+                                <span id="helpBlock" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience" class="col-sm-2 control-label">实践经历</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" cols="60" rows="5" id="experience"
+                                    readonly="readonly"></textarea>
+                                <span id="helpBlock" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="expectation" class="col-sm-2 control-label">期望</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" cols="60" rows="5" id="expectation"
+                                    readonly="readonly"></textarea>
+                                <span id="helpBlock" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="others" class="col-sm-2 control-label">其他</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" cols="60" rows="5" id="others"
+                                    readonly="readonly"></textarea>
+                                <span id="helpBlock" class="help-block"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="ajaxpost">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row bg-info	">
+        <div class="col-md-8"><a href="/Team/view/index.html"><img src="/Team/static/img/icon.png"></a></div>
+        <div class="col-md-2"><a id="member" href="/Team/view/Backstage.html" class="btn btn-secondary btn-lg active"
+                role="button" aria-pressed="true"></a></div>
+        <div class="col-md-2"><a id="removemember" href="/Team/view/Backstage.html"
+                class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">退出登录</a></div>
+    </div>
+    <div class="row">
+        <div class="list-group col-md-2 bg">
+            <div style="height:50px;"></div>
+            <a href="/Team/view/Backstage.html" class="list-group-item list-group-item-action">成员信息</a>
+            <div style="height:50px;"></div>
+            <a href="/Team/view/BackstageResume.html" class="list-group-item list-group-item-action active">简历</a>
+            <div style="height:50px;"></div>
+            <a href="/Team/view/BackstageAnnouncement.html" class="list-group-item list-group-item-action">通告</a>
+            <div style="height:50px;"></div>
+            <a href="/Team/view/BackstageLife.html" class="list-group-item list-group-item-action">生活</a>
+            <div style="height:50px;"></div>
+            <a href="/Team/view/BackstageProject.html" class="list-group-item list-group-item-action">项目</a>
+            <div style="height:50px;"></div>
+            <a href="/Team/view/BackstageAward.html" class="list-group-item list-group-item-action">获奖</a>
+            <div style="height:50px;"></div>
+            <a href="#" class="list-group-item list-group-item-action">历史</a>
+            <div style="height:50px;"></div>
+            <a href="/Team/view/Backstagepassword.html" class="list-group-item list-group-item-action">修改密码</a>
+            <div style="height:50px;"></div>
+        </div>
+        <div class="col-md-9">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>学号</th>
+                        <th>方向</th>
+                        <th>班级</th>
+                        <th>电话号码</th>
+                        <td>专业</td>
+                        <td>微信</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody id="resumebody">
+
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-md-6" id="page_info_area"></div>
+                <div class="col-md-6" id="page_info_nav"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    var loginmember;
+
+    function loginmember(mId, studentNo, grade, phonenumber, profession, wechat, graduation) {
+        this.mId = mId;
+        this.studentNo = studentNo;
+        this.grade = grade;
+        this.phonenumber = phonenumber;
+        this.profession = profession;
+        this.wechat = wechat;
+        this.graduation = graduation;
+    }
+    /*
+     *页面加载发送请求
+     */
+    window.onload = function () {
+        /*
+         *返回登录成员信息
+         */
+        $.ajax({
+            url: "/Team/adminmember",
+            type: "GET",
+            dataType: "JSON",
+            success: function (data) {
+                $("#member").text(data.extend.member.studentNo);
+                var info = data.extend.member;
+                loginmember = new loginmember(info.mId, info.studentNo, info.grade, info.phonenumber, info.profession, info.wechat, info.graduation);
+            },
+            error: function () {
+                alert("Connection error")
+            }
+        });
+
+        to_page(1);
+    }
+
+    /*
+     *退出登录
+     */
+    $("#removemember").click(function () {
+        $.ajax({
+            url: "/Team/exitmember",
+            type: "GET",
+            dataType: "JSON",
+            success: function (data) {
+                if (data.code == 100) {
+                    window.location.href = "/Team/view/Login.html";
+                }
+            },
+            error: function () {
+                alert("退出失败");
+            }
+        });
+    });
+
+    /*
+    *分页ajax
+    */
+    function to_page(pn) {
+        /*
+         *构建员工和分页
+         */
+        $.ajax({
+            url: "/Team/Resume",
+            type: "GET",
+            data: { pn: pn },
+            dataType: "JSON",
+            success: function (data) {
+                build_resumes_table(data);
+                build_page_info(data);
+                build_page_nav(data);
+            },
+            error: function () {
+                alert("Connection error")
+            }
+        });
+    }
+
+    /*
+     *构建分页导航信息
+     */
+    function build_page_info(data) {
+        $("#page_info_area").empty();
+        $("#page_info_area").append("当前" + data.extend.pageinfo.pageNum + "页  " + "总" + data.extend.pageinfo.pages + "页   " + "总" + data.extend.pageinfo.total + "记录数")
+
+    }
+
+    /*
+     *显示分页条
+     */
+    function build_page_nav(data) {
+        $("#page_info_nav").empty();
+        var ul = $("<ul></ul>").addClass("pagination")
+        var firstPageLi = $("<li></li>").append($("<a></a>").append("首页"));
+        var prePageLi = $("<li></li>").append($("<a></a>").append("前一页").append("&laquo;"));
+        if (data.extend.pageinfo.hasPreviousPage == false) {
+            firstPageLi.addClass("disabled");
+            prePageLi.addClass("disabled");
+        }
+        else {
+            firstPageLi.click(function () {
+                to_page(1);
+            });
+            prePageLi.click(function () {
+                to_page(data.extend.pageinfo.pageNum - 1);
+            });
+        }
+        var nextPaegLi = $("<li></li>").append($("<a></a>").append("后一页").append("&raquo;"));
+        var lastPageLi = $("<li></li>").append($("<a></a>").append("末页"));
+        if (data.extend.pageinfo.hasNextPage == false) {
+            nextPaegLi.addClass("disabled");
+            lastPageLi.addClass("disabled");
+        }
+        else {
+            nextPaegLi.click(function () {
+                to_page(data.extend.pageinfo.pageNum + 1);
+            });
+            lastPageLi.click(function () {
+                to_page(data.extend.pageinfo.pages);
+            });
+        }
+        ul.append(firstPageLi).append(prePageLi);
+        $.each(data.extend.pageinfo.navigatepageNums, function (index, item) {
+            var numLi = $("<li></li>").append($("<a></a>").append(item));
+            if (data.extend.pageinfo.pageNum == item) {
+                numLi.addClass("active");
+            }
+            numLi.click(function () {
+                to_page(item);
+            });
+            ul.append(numLi);
+        })
+        ul.append(nextPaegLi).append(lastPageLi);
+        var navEle = $("<nav></nav>").append(ul);
+        navEle.appendTo("#page_info_nav");
+    }
+
+    /*
+     *构建简历数据
+     */
+    function build_resumes_table(data) {
+        $("#resumebody").empty();
+        var resumes = data.extend.pageinfo.list;
+        $.each(resumes, function (index, item) {
+            var resumeId = $("<td></td>").append(item.resumeId);
+            var studentNo = $("<td></td>").append(item.studentNo);
+            var direction = $("<td></td>").append(item.direction);
+            var grade = $("<td></td>").append(item.grade);
+            var phonenumber = $("<td></td>").append(item.phonenumber);
+            var profession = $("<td></td>").append(item.profession);
+            var wechat = $("<td></td>").append(item.wechat);
+            var showbtn = $("<button></button>").addClass("btn btn-primary btn-lg active").append("查看").append($("<span></span").addClass("glyphicon glyphicon-pencil"));
+            showbtn.click(function () {
+                $.ajax({
+                    url: "/Team/resume",
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { resumeId: item.resumeId },
+                    success: function (data) {
+                        console.log(data);
+                        $("#showresume").modal({
+                            backdrop: "static"
+                        });
+                        $("#studentNo").val(data.extend.Resume.studentNo);
+                        $("#direction").val(data.extend.Resume.direction);
+                        $("#grade").val(data.extend.Resume.grade);
+                        $("#phonenumber").val(data.extend.Resume.phonenumber);
+                        $("#profession").val(data.extend.Resume.profession);
+                        $("#wechat").val(data.extend.Resume.wechat);
+                        $("#evaluation").val(data.extend.Resume.evaluation);
+                        $("#skills").val(data.extend.Resume.skills);
+                        $("#experience").val(data.extend.Resume.experience);
+                        $("#expectation").val(data.extend.Resume.expectation);
+                        $("#others").val(data.extend.Resume.others);
+                    },
+                    error: function () {
+                        alert("Connection error");
+                    }
+                });
+            });
+            var acceptbtn = $("<button></button>").addClass("btn btn-success btn-lg active").append("接受").append($("<span></span").addClass("glyphicon glyphicon-pencil"));
+            acceptbtn.click(function () {
+                var resumeId = item.resumeId;
+                var studentNo = item.studentNo;
+                var grade = item.grade;
+                var phonenumber = item.phonenumber;
+                var profession = item.profession;
+                var wechat = item.wechat;
+                var profession = item.profession;
+                $.ajax({
+                    url: "/Team/Member",
+                    type: "POST",
+                    data: { resumeId: resumeId, studentNo: studentNo + "", grade: grade + "", phonenumber: phonenumber + "", profession: profession + "", wechat: wechat + "" },
+                    dataType: "JSON",
+                    success: function (data) {
+                        console.log(data);
+                        if (data.code == 100) {
+                            alert("新增一名成员啦");
+                            window.location.reload();
+                        }
+                    },
+                    error: function () {
+                        alert("Connection error");
+                    }
+                });
+
+            });
+            $("<tr></tr>").append(resumeId).append(studentNo).append(direction).append(grade).append(phonenumber).append(profession).append(wechat).append($("<td></td>").append(showbtn).append(acceptbtn)).appendTo($("#resumebody"));
+        });
+    }
+</script>
+
+</html>

@@ -9,30 +9,36 @@
     <insert id="insertSelective" parameterType="com.team.bean.Announcement">
     insert into tbl_announcement
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="historyId != null">
+      <if test="announcementId != null">
         announcement_id,
+      </if>
+      <if test="mId != null">
+        m_id,
       </if>
       <if test="message != null">
         message,
       </if>
-      <if test="histroyDate != null">
+      <if test="announcementTime != null">
         announcement_time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="historyId != null">
+      <if test="announcementId != null">
         #{announcementId,jdbcType=INTEGER},
+      </if>
+      <if test="mId != null">
+        #{mId,jdbcType=INTEGER},
       </if>
       <if test="message != null">
         #{message,jdbcType=VARCHAR},
       </if>
-      <if test="histroyDate != null">
+      <if test="announcementTime != null">
         #{announcementTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
   <select id="selectnew" resultMap="BaseResultMap">
-    select * from tbl_announcement limit 1
+     SELECT * FROM (SELECT * FROM tbl_announcement ORDER BY announcement_time DESC) AS a LIMIT 1
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select * from tbl_announcement 

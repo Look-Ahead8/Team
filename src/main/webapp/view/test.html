@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<input type="text" id="studentNo" name="studentNo"/><br/>
+<input type="password"  id="password" name="password"/><br/>
+<input type="text" id="code"></input>
+<img src="http://localhost:8080/Team/imgcode" /><br/>
+<button onclick="submit()">提交</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+  function submit(){
+	  var studentNo=$("#studentNo").val();
+	  var password=$("#password").val();
+	  var code=$("#code").val();
+	  $.ajax({
+		  url:"http://localhost:8080/Team/login",
+		  async:false,
+		  type:"POST",
+		  data:{studentNo:studentNo+"",password:password+"",code:code+""},
+		  withCredentials:true,
+		  success:function(data){
+			  $.each(data,function(ide,item){
+				  alert(item);
+			  })
+		  }
+	  });
+  }
+</script>
+</html>

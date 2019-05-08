@@ -73,11 +73,11 @@ public class AwardController {
 				String uuid = UUID.randomUUID().toString().replaceAll("-", "");
 				String contentType = file[i].getContentType();
 				String imageName = contentType.substring(contentType.indexOf("/") + 1);
-				String path = "static\\award\\" + uuid + "." + imageName;
+				String path = "static/award/" + uuid + "." + imageName;
 				file[i].transferTo(new File(pathRoot+path));
 				APirture aPirture=new APirture();
 				aPirture.setPirturePath(path);
-				aPirture.setAwardId(award.getAwardId());
+				aPirture.setAwardId(awardService.getawardId());
 				aPirtureService.saveAPirture(aPirture);
 			}
 			return Msg.success();

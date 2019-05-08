@@ -29,7 +29,7 @@ public class log {
 			HttpServletRequest request = attributes.getRequest();
 			File file=new File(request.getServletContext().getRealPath("/")+fileName);
 			fw=new FileWriter(file, true);
-			fw.write(getTime()+"    "+request.getRemoteAddr()+"   "+jp.getSignature()+"开始执行");
+			fw.write(getTime()+"    "+request.getRemoteAddr()+"   "+jp.getSignature()+"开始执行"+"\n");
 		} 
 		catch (IOException e) {
 			System.out.println("日志文件写入失败");
@@ -44,7 +44,6 @@ public class log {
 				e.printStackTrace();
 			}
 		}
-		System.out.println(getTime()+"  "+jp.getSignature()+"开始执行");
 	}
 	
 	@After("execution(* com.team.service..*.*(..))")
@@ -54,7 +53,7 @@ public class log {
 			HttpServletRequest request = attributes.getRequest();
 			File file=new File(request.getServletContext().getRealPath("/")+fileName);
 			fw=new FileWriter(file, true);
-			fw.write(getTime()+"    "+request.getRemoteAddr()+"   "+jp.getSignature()+"执行成功");
+			fw.write(getTime()+"    "+request.getRemoteAddr()+"   "+jp.getSignature()+"执行成功\n");
 		}
 		catch(IOException e) {
 			System.out.println("日志文件写入失败");

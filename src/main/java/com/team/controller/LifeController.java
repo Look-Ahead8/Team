@@ -53,7 +53,7 @@ public class LifeController {
 	@ApiImplicitParams({
 		@ApiImplicitParam(name="lifeId",value="生活id(不用)",dataType="int",paramType="query"),
 		@ApiImplicitParam(name="mId",value="发布的成员id(不用)",dataType="int",paramType="query"),
-		@ApiImplicitParam(name="message",value="内容(必须)",paramType="query"),
+		@ApiImplicitParam(name="context",value="内容(必须)",paramType="query"),
 		@ApiImplicitParam(name="lifetDate",value="项目展示日期(必须),规定好格式，XXXX-XX-XX",paramType="query"),
 		@ApiImplicitParam(name="Path",value="照片(必须),不要超过9张，也不可以0张",paramType="query"),
 	})
@@ -76,11 +76,11 @@ public class LifeController {
 				String uuid = UUID.randomUUID().toString().replaceAll("-", "");
 				String contentType = file[i].getContentType();
 				String imageName = contentType.substring(contentType.indexOf("/") + 1);
-				String path = "static\\life\\" + uuid + "." + imageName;
+				String path = "static/life/" + uuid + "." + imageName;
 				file[i].transferTo(new File(pathRoot + path));
 				LPirture lPirture=new LPirture();
 				lPirture.setPirturePath(path);
-				lPirture.setLifeId(life.getLifeId());
+				lPirture.setLifeId(lifeService.getlifeId());
 				lPirtureService.saveLPirture(lPirture);
 			}
 			return Msg.success();

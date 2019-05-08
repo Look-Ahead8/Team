@@ -59,6 +59,8 @@ public class Project {
 	public void setpPirture(List<PPirture> pPirture) {
 		this.pPirture = pPirture;
 	}
+
+
     
     
 }

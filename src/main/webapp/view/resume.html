@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>加入我们</title>
+	<link href="/Team/static/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="/Team/lib/jquery-3.3.1.js" type="text/javascript">
+</head>
+
+<body style=" background:url(/Team/static/images/bg.png);">
+	<div class="row bg-info	">
+		<div class="col-md-9"><a href="/Team/view/index.html"><img src="/Team/static/img/icon.png"></a></div>
+		<div class="col-md-1"><a href="/Team/view/resume.html" class="btn btn-primary btn-lg active"
+				role="button">投递简历</a></div>
+		<div class="col-md-1"><a href="/Team/view/resume.html" class="btn btn-primary btn-lg active"
+				role="button">团队介绍</a></div>
+		<div class="col-md-1"><a href="/Team/view/login.html" class="btn btn-primary btn-lg active"
+				role="button">后台登录</a></div>
+	</div>
+	<div style="
+	border:1px,solid;
+	width: 48%;
+    margin: 0 auto;
+    padding: 30px 0 70px;">
+		<h2 style="text-align:center;">加入我们</h2>
+		<div class="form-group">
+			<input type="text" class="form-control" id="studentNo" placeholder="学号" onblur="checkstudentNo();"
+				onfocus="reverse(this);">
+			<span id="studentNohelpBlock" class="help-block"></span>
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" id="direction" placeholder="方向(后台，前端，自然语言处理，计算机视觉，也可自己填写)"
+				onblur="checknull(this);" onfocus="reverse(this);">
+			<span id="directionhelpBlock" class="help-block"></span>
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" id="grade" placeholder="班级" onblur="checknull(this);" onfocus="reverse(this);">
+			<span id="gradehelpBlock" class="help-block"></span>
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" id="phonenumber" placeholder="电话号码" onblur="checkphonenumber();" onfocus="reverse(this);">
+			<span id="phonenumberhelpBlock" class="help-block"></span>
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" id="profession" placeholder="专业" onblur="checknull(this);" onfocus="reverse(this);">
+			<span id="professionhelpBlock" class="help-block"></span>
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" id="wechat" placeholder="微信" onblur="checknull(this);" onfocus="reverse(this);">
+			<span id="wechathelpBlock" class="help-block"></span>
+		</div>
+		<div class="form-group">
+			<textarea rows='6' cols='20' class="form-control" id="evaluation" placeholder="自我评价"
+				onblur="checknull(this);" onfocus="reverse(this);"></textarea>
+			<span id="evaluationhelpBlock" class="help-block"></span>
+		</div>
+		<div class="form-group">
+			<textarea rows='6' cols='20' class="form-control" id="skills" placeholder="技能"
+				onblur="checknull(this);" onfocus="reverse(this);"></textarea>
+			<span id="skillshelpBlock" class="help-block"></span>
+		</div>
+		<div class="form-group">
+			<textarea rows='6' cols='20' class="form-control" id="experience" placeholder="实践经历"
+				onblur="checknull(this);" onfocus="reverse(this);"></textarea>
+			<span id="experiencehelpBlock" class="help-block"></span>
+		</div>
+		<div class="form-group">
+			<textarea rows='6' cols='20' class="form-control" id="expectation" placeholder="期望"
+				onblur="checknull(this);" onfocus="reverse(this);"></textarea>
+			<span id="expectationhelpBlock" class="help-block"></span>
+		</div>
+		<div class="form-group">
+			<textarea rows='6' cols='20' class="form-control" id="others" placeholder="其他"
+				onblur="checknull(this);" onfocus="reverse(this);"></textarea>
+			<span id="othershelpBlock" class="help-block"></span>
+		</div>
+		<div class="row">
+			<div class="col-md-5 col-md-offset-3"><button type="button" class="btn btn-success"
+					onclick="submit();">提交</button></div>
+			<div class="col-md-4"><button type="button" class="btn btn-info" onclick="reset();">重置</button></div>
+		</div>
+	</div>
+</body>
+<script src="/Team/lib/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+/*
+ *对学号进行校验
+ */
+	function checkstudentNo() {
+		var studentNo = $("#studentNo").val();
+		if (studentNo == "") {
+			$("#studentNo").parent().addClass("has-error");
+			$("#studentNo").next("span").text("请输入学号");
+			return false;
+		}
+		else if (studentNo.length != 12) {
+			$("#studentNo").parent().addClass("has-error");
+			$("#studentNo").next("span").text("请输入12位学号");
+			return false;
+		}
+		else {
+			$("#studentNo").parent().addClass("has-success");
+			return true;
+		}
+	}
+
+/*
+ *对电话号码进行校验
+ */
+	function checkphonenumber() {
+		var phonenumber = $("#phonenumber").val();
+		var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+		if (!myreg.test(phonenumber)) {
+			$("#phonenumber").parent().addClass("has-error");
+			$("#phonenumber").next("span").text("请输入正确的手机号码");
+			return false;
+		}
+		else {
+			$("#phonenumber").parent().addClass("has-success");
+			return true;
+		}
+	}
+
+/*
+ *文本框非空判断
+ */
+	function checknull(node) {
+		var value = $(node).val();
+		if (value == "") {
+			$(node).parent().addClass("has-error");
+			$(node).next("span").text("不可以为空");
+			return false;
+		}
+		else {
+			$(node).parent().addClass("has-success");
+			return true;
+		}
+	}
+
+/*
+ *用户重新输入移除校验状态
+ */
+	function reverse(node) {
+		$(node).parent().removeClass();
+		$(node).parent().addClass("form-group");
+		$(node).next("span").text("");
+	}
+
+    
+/*
+ *整个简历的校验汇总
+ */
+    function checkall(){
+		if(!(checkphonenumber()&&checkstudentNo()&&checknull($("#direction"))&&checknull($("#grade"))&&checknull($("#profession"))&&checknull($("#wechat"))&&checknull($("#evaluation"))&&checknull($("#skills"))&&checknull($("#experience"))&&checknull($("#expectation"))&&checknull($("#others")))){
+             return false;
+		}
+		else{
+			return true;
+		}
+
+	}
+
+/*
+ *ajax提交到后台接口
+ */
+	function submit() {
+		var studentNo = $("#studentNo").val();
+		var direction = $("#direction").val();
+		var grade = $("#grade").val();
+		var phonenumber = $("#phonenumber").val();
+		var profession = $("#profession").val();
+		var wechat = $("#wechat").val();
+		var evaluation = $("#evaluation").val();
+		var skills = $("#skills").val();
+		var experience = $("#experience").val();
+		var expectation = $("#expectation").val();
+		var others = $("#others").val();
+		if(!checkall()){
+			alert("请填写正确的信息");
+			return false;
+		}
+		$.ajax({
+			url: "/Team/Resume",
+			type: "POST",
+			dataType: "JSON",
+			data: { studentNo: studentNo + "", direction: direction + "", grade: grade + "", phonenumber: phonenumber + "", profession: profession + "", wechat: wechat + "", evaluation: evaluation + "", skills: skills + "", experience: experience + "", expectation: expectation + "", others: others + "" },
+			success: function (data) {
+				if(data.code==100){
+					alert("提交成功");
+				}
+                else{
+					alert("请填写正确的信息");
+				}
+			},
+			error: function () {
+				alert("Connection error");
+
+			}
+		});
+	}
+	
+/*
+ *重置全部文本框
+ */
+	function reset() {
+		$("#studentNo").val("");
+		$("#direction").val("");
+		$("#grade").val("");
+		$("#phonenumber").val("");
+		$("#profession").val("");
+		$("#wechat").val("");
+		$("#evaluation").val("");
+		$("#skills").val("");
+		$("#experience").val("");
+		$("#expectation").val("");
+		$("#others").val("");
+	}
+</script>
+
+</html>

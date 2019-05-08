@@ -56,6 +56,7 @@ public class AnnouncementController {
     	else {
     		Member member=(Member)request.getSession().getAttribute("member");
     		announcement.setmId(member.getmId());
+    		System.out.println(member.getmId());
     		announcementService.saveAnnouncement(announcement);
     		return Msg.success();
     	}	

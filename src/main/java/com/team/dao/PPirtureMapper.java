@@ -12,7 +12,7 @@ public interface PPirtureMapper {
 
     int deleteByPrimaryKey(Integer ppId);
 
-    int deleteByProjetId(Integer projectId);
+    int deleteByProjectId(Integer projectId);
     
     int insert(PPirture record);
 
@@ -22,7 +22,7 @@ public interface PPirtureMapper {
 
     PPirture selectByPrimaryKey(Integer ppId);
 
-    List<PPirture> selectImaPath(Integer projectId);
+    List<PPirture> selectImgPath(Integer projectId);
     
     int updateByExampleSelective(@Param("record") PPirture record, @Param("example") PPirtureExample example);
 

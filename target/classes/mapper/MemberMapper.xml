@@ -92,10 +92,13 @@
     from tbl_member_information
     where m_id = #{mId,jdbcType=INTEGER}
   </select>
-  <select id="selectPassword" parameterType="java.lang.String" resultSets="string">
-    select password from tbl_member_information where student_no=#{student_no,jdbcType=CHAR}
+  <select id="selectOldpassword" parameterType="java.lang.Integer" resultType="java.lang.String">
+    select password from tbl_member_information where m_id=#{mId,jdbcType=INTEGER}
   </select>
-  <select id="selectByStudentNo" parameterType="java.lang.String" resultSets="com.team.bean.Member">
+  <select id="selectPassword" parameterType="java.lang.String" resultType="java.lang.String">
+    select password from tbl_member_information where student_no=#{studentNo,jdbcType=CHAR}
+  </select>
+  <select id="selectByStudentNo" parameterType="java.lang.String" resultType="com.team.bean.Member">
     select 
     <include refid="Base_Column_List" />
     from tbl_member_information
@@ -266,5 +269,10 @@
       graduation = #{graduation,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR}
     where m_id = #{mId,jdbcType=INTEGER}
+  </update>
+  <update id="updatepassword"  parameterType="com.team.bean.Member">
+    update tbl_member_information
+    set password=#{password,jdbcType=VARCHAR}
+    where m_id=#{mId,jdbcType=INTEGER}
   </update>
 </mapper>

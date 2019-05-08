@@ -13,6 +13,7 @@ public class LoginService {
 	private MemberMapper memberMapper;
 
 	public boolean selectMember(String studentNo,String password,String imgcode,String text) {
+		System.out.println("输入的是"+imgcode+" "+"session中的是"+text);
 		if(checkstudentNo(studentNo)&&checkpassword(password)&&checkimgcode(imgcode)&&checkimgcode(imgcode,text)&&checkmember(studentNo,password)) {
 			return true;
 		}
@@ -81,11 +82,16 @@ public class LoginService {
 	 */
 	public boolean checkmember(String studentNo,String password) {
 		String pwd=memberMapper.selectPassword(studentNo);
-		if(pwd.equals(MD5Util.crypt(password))) {
-			return true;
+		if(pwd==null) {
+			return false;
 		}
 		else {
-			return false;
+			if(pwd.equals(MD5Util.crypt(password))) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 	}
 }

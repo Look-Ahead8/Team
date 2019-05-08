@@ -10,7 +10,7 @@ public class Member {
     private String studentNo;
     @NotBlank(message="班级不可以为空")
     private String grade;
-    @Pattern(regexp="^((17[0-9])|(14[0-9])|(13[0-9])|(15[^4,\\D])|(18[0-2,5-9]))\\d{8}$",message="请输入正确的电话号码")
+    @NotBlank(message="电话号码不可以为空")
     private String phonenumber;
     @NotBlank(message="专业不可以为空")
     private String profession;

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>通告管理</title>
+    <script src="/Team/lib/jquery-3.3.1.js"></script>
+    <link href="/Team/static/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="/Team/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .bg {
+            background: #F1F3F4;
+        }
+    </style>
+</head>
+<!-- 模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">发布通告</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="myform">
+                    <div class="form-group">
+                        <label for="addmessage" class="col-sm-2 control-label">内容</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" cols="60" rows="5" id="addmessage" onblur="checknull(this);"
+                                onfocus="reverse(this);"></textarea>
+                            <span id="helpBlock" class="help-block"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="ajaxpost">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="showannouncement" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">最新通告</h4>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label for="showmessage" class="col-sm-2 control-label">内容</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" cols="60" rows="5" id="showmessage"
+                                        readonly="readonly"></textarea>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label for="showannouncementTime" class="col-sm-2 control-label">通告日期</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="showannouncementTime"
+                                        readonly="readonly">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body>
+    <div class="row bg-info	">
+        <div class="col-md-8"><a href="/Team/view/index.html"><img src="/Team/static/img/icon.png"></a></div>
+        <div class="col-md-2"><a id="member" href="/Team/view/Backstage.html" class="btn btn-secondary btn-lg active"
+                role="button" aria-pressed="true"></a></div>
+        <div class="col-md-2"><a id="removemember" href="/Team/view/Backstage.html"
+                class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">退出登录</a></div>
+    </div>
+    <div class="row">
+        <div class="list-group col-md-2 bg">
+            <div style="height:50px;"></div>
+            <a href="/Team/view/Backstage.html" class="list-group-item list-group-item-action">成员信息</a>
+            <div style="height:50px;"></div>
+            <a href="/Team/view/BackstageResume.html" class="list-group-item list-group-item-action">简历</a>
+            <div style="height:50px;"></div>
+            <a href="/Team/view/BackstageAnnouncement.html" class="list-group-item list-group-item-action active">通告</a>
+            <div style="height:50px;"></div>
+            <a href="/Team/view/BackstageLife.html" class="list-group-item list-group-item-action">生活</a>
+            <div style="height:50px;"></div>
+            <a href="/Team/view/BackstageProject.html" class="list-group-item list-group-item-action">项目</a>
+            <div style="height:50px;"></div>
+            <a href="/Team/view/BackstageAward.html" class="list-group-item list-group-item-action">获奖</a>
+            <div style="height:50px;"></div>
+            <a href="#" class="list-group-item list-group-item-action">历史</a>
+            <div style="height:50px;"></div>
+            <a href="/Team/view/Backstagepassword.html" class="list-group-item list-group-item-action">修改密码</a>
+            <div style="height:50px;"></div>
+        </div>
+        <div class="col-md-9">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <th>发布者</th>
+                        <th>发布内容</th>
+                        <th>发布日期</th>
+                    </tr>
+                </thead>
+                <tbody id="announcementbody">
+
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-md-6" id="page_info_area"></div>
+                <div class="col-md-6" id="page_info_nav"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <button class="btn btn-primary btn-lg active" id="addannouncement">
+                        添加通告
+                        <span class="glyphicon glyphicon-pencil">
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript">
+    var loginmember;
+
+    function loginmember(mId, studentNo, grade, phonenumber, profession, wechat, graduation) {
+        this.mId = mId;
+        this.studentNo = studentNo;
+        this.grade = grade;
+        this.phonenumber = phonenumber;
+        this.profession = profession;
+        this.wechat = wechat;
+        this.graduation = graduation;
+    }
+
+    /*
+     *页面加载发送请求
+     */
+    window.onload = function () {
+        /*
+         *返回登录成员信息
+         */
+        $.ajax({
+            url: "/Team/adminmember",
+            type: "GET",
+            dataType: "JSON",
+            success: function (data) {
+                $("#member").text(data.extend.member.studentNo);
+                var info = data.extend.member;
+                loginmember = new loginmember(info.mId, info.studentNo, info.grade, info.phonenumber, info.profession, info.wechat, info.graduation);
+            },
+            error: function () {
+                alert("Connection error")
+            }
+        });
+
+        /*
+         *最新通告
+         */
+        $.ajax({
+            url: "/Team/announcement",
+            type: "GET",
+            dataType: "JSON",
+            success: function (data) {
+                console.log(data);
+                $("#showannouncement").modal({
+                    backdrop: "static"
+                });
+                $("#showmessage").val(data.extend.announcement.message);
+                $("#showannouncementTime").val(data.extend.announcement.announcementTime);
+            },
+            error: function () {
+                alert("Connection error");
+            }
+        });
+        to_page(1);
+    }
+
+    /*
+     *退出登录
+     */
+    $("#removemember").click(function () {
+        $.ajax({
+            url: "/Team/exitmember",
+            type: "GET",
+            dataType: "JSON",
+            success: function (data) {
+                if (data.code == 100) {
+                    window.location.href = "/Team/view/Login.html";
+                }
+            },
+            error: function () {
+                alert("退出失败");
+            }
+        });
+    });
+    /*
+     *模态框
+     */
+    $("#addannouncement").click(function () {
+        $("#myModal").modal({
+            backdrop: "static"
+        });
+    });
+
+    /*
+     *文本框非空判断
+     */
+    function checknull(node) {
+        var value = $(node).val();
+        if (value == "") {
+            $(node).parent().addClass("has-error");
+            $(node).next("span").text("不可以为空");
+            return false;
+        }
+        return true;
+    }
+
+    /*
+     *用户重新输入移除校验状态
+     */
+    function reverse(node) {
+        $(node).parent().removeClass("has-error");
+        $(node).next("span").text("");
+    }
+
+    /*
+     *分页ajax
+     */
+    function to_page(pn) {
+        /*
+         *构建员工和分页
+         */
+        $.ajax({
+            url: "/Team/Announcement",
+            type: "GET",
+            data: { pn: pn },
+            dataType: "JSON",
+            success: function (data) {
+                console.log(data);
+                build_lifes_table(data);
+                build_page_info(data);
+                build_page_nav(data);
+            },
+            error: function () {
+                alert("Connection error")
+            }
+        });
+
+    }
+
+    /*
+     *构建生活数据
+     */
+    function build_lifes_table(data) {
+        $("#announcementbody").empty();
+        var announcements = data.extend.pageinfo.list;
+        $.each(announcements, function (index, item) {
+            var announcementId = $("<td></td>").append(item.announcementId);
+            var mId = $("<td></td>").append(item.mId);
+            var message = $("<td></td>").append(item.message);
+            var announcementTime = $("<td></td>").append(item.announcementTime);
+            var delbtn = $("<button></button>").addClass("btn btn-danger btn-lg active").append("删除").append($("<span></span").addClass("glyphicon glyphicon-pencil"));
+            delbtn.click(function () {
+                $.ajax({
+                    url: "/Team/Announcement",
+                    type: "POST",
+                    dataType: "JSON",
+                    data: { _method: "DELETE", announcementId: item.announcementId },
+                    success: function (data) {
+                        if (data.code == 100) {
+                            alert("删除成功");
+                            window.location.reload();
+                        }
+                    },
+                    error: function (data) {
+                        alert("Connection error");
+                    }
+                });
+            });
+            $("<tr></tr>").append(announcementId).append(mId).append(message).append(announcementTime).append($("<td></td>").append(delbtn)).appendTo($("#announcementbody"));
+        });
+    }
+
+    /*
+     *构建分页导航信息
+     */
+    function build_page_info(data) {
+        $("#page_info_area").empty();
+        $("#page_info_area").append("当前" + data.extend.pageinfo.pageNum + "页  " + "总" + data.extend.pageinfo.pages + "页   " + "总" + data.extend.pageinfo.total + "记录数")
+
+    }
+
+    /*
+     *显示分页条
+     */
+    function build_page_nav(data) {
+        $("#page_info_nav").empty();
+        var ul = $("<ul></ul>").addClass("pagination")
+        var firstPageLi = $("<li></li>").append($("<a></a>").append("首页"));
+        var prePageLi = $("<li></li>").append($("<a></a>").append("前一页").append("&laquo;"));
+        if (data.extend.pageinfo.hasPreviousPage == false) {
+            firstPageLi.addClass("disabled");
+            prePageLi.addClass("disabled");
+        }
+        else {
+            firstPageLi.click(function () {
+                to_page(1);
+            });
+            prePageLi.click(function () {
+                to_page(data.extend.pageinfo.pageNum - 1);
+            });
+        }
+        var nextPaegLi = $("<li></li>").append($("<a></a>").append("后一页").append("&raquo;"));
+        var lastPageLi = $("<li></li>").append($("<a></a>").append("末页"));
+        if (data.extend.pageinfo.hasNextPage == false) {
+            nextPaegLi.addClass("disabled");
+            lastPageLi.addClass("disabled");
+        }
+        else {
+            nextPaegLi.click(function () {
+                to_page(data.extend.pageinfo.pageNum + 1);
+            });
+            lastPageLi.click(function () {
+                to_page(data.extend.pageinfo.pages);
+            });
+        }
+        ul.append(firstPageLi).append(prePageLi);
+        $.each(data.extend.pageinfo.navigatepageNums, function (index, item) {
+            var numLi = $("<li></li>").append($("<a></a>").append(item));
+            if (data.extend.pageinfo.pageNum == item) {
+                numLi.addClass("active");
+            }
+            numLi.click(function () {
+                to_page(item);
+            });
+            ul.append(numLi);
+        })
+        ul.append(nextPaegLi).append(lastPageLi);
+        var navEle = $("<nav></nav>").append(ul);
+        navEle.appendTo("#page_info_nav");
+    }
+
+    /*
+     *ajax提交通告
+     */
+    $("#ajaxpost").click(function () {
+        var message = $("#addmessage").val();
+        console.log(message);
+        $.ajax({
+            url: "/Team/Announcement",
+            type: "POST",
+            dataType: "JSON",
+            data: { message: message + "" },
+            success: function (data) {
+                if (data.code == 200) {
+                    alert(data.extend.errorFields);
+                }
+                else if (data.code == 100) {
+                    alert("提交成功");
+                    window.location.reload();
+                }
+            },
+
+        });
+    });
+
+</script>
+
+</html>

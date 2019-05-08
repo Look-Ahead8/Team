@@ -12,10 +12,10 @@
     <result column="m_id" jdbcType="INTEGER" property="mId" />
     <result column="message" jdbcType="VARCHAR" property="message" />
     <result column="project_date" jdbcType="DATE" property="projectDate" />
-    <collection property="pPriture" ofType="com.team.bean.PPirture">
+    <collection property="pPirture" ofType="com.team.bean.PPirture">
         <id column="pp_id" jdbcType="INTEGER" property="ppId"/>
         <result column="project_id" jdbcType="INTEGER" property="projectId"/>
-        <result column="priture_path" jdbcType="VARCHAR" property="pirturePath"/>
+        <result column="pirture_path" jdbcType="VARCHAR" property="pirturePath"/>
     </collection>
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -100,12 +100,13 @@
     where project_id = #{projectId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMapWithPirture">
-    select * 
-    from tbl_project p left join tbl_project_pirture pp
-    on p.project_id = pp.project_id
+     SELECT * FROM tbl_project
   </select>
   <select id="selectOne" resultMap="BaseResultMapWithPirture">
-    SELECT * FROM tbl_project p INNER JOIN tbl_project_pirture pp ON p.life_id=#{projectId.jdbcType=INTEGER}
+    SELECT * FROM tbl_project p INNER JOIN tbl_project_pirture pp ON p.project_id=pp.project_id AND p.project_id=#{projectId,jdbcType=INTEGER}
+  </select>
+  <select id="selectprojectId"  resultType="java.lang.Integer">
+   SELECT project_id FROM tbl_project ORDER BY project_id DESC LIMIT 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tbl_project

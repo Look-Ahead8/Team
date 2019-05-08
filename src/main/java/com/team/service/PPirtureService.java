@@ -20,10 +20,10 @@ public class PPirtureService {
 	 * 根据项目id返回全部该id项目照片的路径
 	 */
 	public List<PPirture> selectImaPath(Integer projectId){
-		return pPirtureMapper.selectImaPath(projectId);
+		return pPirtureMapper.selectImgPath(projectId);
 	}
 	public void deletePPirture(Integer projectId) {
-		pPirtureMapper.deleteByProjetId(projectId);
+		pPirtureMapper.deleteByProjectId(projectId);
 	}
 	public void savePPirture(PPirture pPirture) {
 		pPirtureMapper.insertSelective(pPirture);

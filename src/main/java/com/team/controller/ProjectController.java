@@ -77,11 +77,11 @@ public class ProjectController {
             	String uuid = UUID.randomUUID().toString().replaceAll("-", "");
 				String contentType = file[i].getContentType();
 				String imageName = contentType.substring(contentType.indexOf("/") + 1);
-				String path = "static\\project\\" + uuid + "." + imageName;
+				String path = "static/project/" + uuid + "." + imageName;
 				file[i].transferTo(new File(pathRoot+path));
 				PPirture pPirture=new PPirture();
 				pPirture.setPirturePath(path);
-				pPirture.setProjectId(project.getProjectId());
+				pPirture.setProjectId(projectService.getprojectId());
 				pPirtureService.savePPirture(pPirture);
             }
 			return Msg.success();

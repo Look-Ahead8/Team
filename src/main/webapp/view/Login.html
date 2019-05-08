@@ -1,0 +1,78 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>登录</title>
+    <style>
+   .container{
+        margin-top: 15%
+    }
+    .img{
+    display:inline-block;
+    }
+    .logo-icon{
+        width: 50%;
+        height: 50%;
+    }
+    .login{
+        display:inline-block;
+    }
+    </style>
+</head>
+<body>
+        <div class="container" id="container">
+            <div class="img">
+            <img class="logo-icon" src="/Team/static/img/icon.jpg" alt="icon" >
+            <h1>图灵智能创新团队</h1>
+            </div>
+            <div class="login">
+             请输入用户名称：
+            <input type="text" name="studentNo" id="studentNo" ><span id="nameTipMsg"></span>
+            <br>
+            请输入用户密码：
+            <input type="password" id="password" name="password">
+            <br>
+            请输入验证码：
+            <input type="text" id="code" name="code"><img id="img" src="/Team/imgcode" onclick="change();">
+            <br>
+            <button onclick="ajaxPost()">登录</button>
+            </div>
+        </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
+       <script type="text/javascript">
+       function ajaxPost(){
+           var studentNo=$("#studentNo").val();
+           var password=$("#password").val();
+           var code=$("#code").val();
+            $.ajax({  
+        type: "POST",  
+        url:"/Team/login",  
+        xhrFields:{
+        withCredentials:true
+        },
+        crossDomain:true,
+        data:{studentNo:studentNo+"",password:password+"",code:code+""},
+        dataType:"JSON" ,
+        success: function(data) {  
+        	console.log(data);
+        	if(data.code==100){
+        		window.location.href="/Team/view/Backstage.html";
+        	}
+        	else if(data.code==200){
+        	    alert(data.extend.error);
+        	}
+        },
+        error: function(request) {  
+            alert("Connection error");  
+        }   
+      }); 
+    }
+/*
+ *更改验证码
+*/
+    function change(){
+       var date=new Date();
+       document.getElementById("img").src="/Team/imgcode?Time="+date.getTime();
+    }
+      </script>
+</body>
+</html>

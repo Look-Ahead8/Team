@@ -14,7 +14,7 @@ public class AnnouncementService {
 	private AnnouncementMapper announcementMapper;
 
 	public void saveAnnouncement(Announcement announcement) {
-		announcementMapper.insertSelecetive(announcement);
+		announcementMapper.insertSelective(announcement);
 	}
 	
 	public Announcement selectAnnouncementNew() {

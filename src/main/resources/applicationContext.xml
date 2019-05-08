@@ -21,7 +21,7 @@
        <!-- 设置最大内存大小 -->
        <property name="maxInMemorySize" value="10240"/>
        <!-- 设置最大文件大小,这里不限制大小 -->
-       <property name="maxUploadSize" value="-1"></property>
+       <property name="maxUploadSize" value="5242880"></property>
     </bean>
     
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">

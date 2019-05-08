@@ -29,6 +29,7 @@ public class ImgCodeController {
 		String text=imgCode.getText();
 		HttpSession session=request.getSession();
 		session.setAttribute("text", text);
+		System.out.println((String)session.getAttribute("text"));
 		imgCode.output(img, out);
 	}
 }

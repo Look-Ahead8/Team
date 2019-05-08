@@ -18,6 +18,10 @@ public class AwardService {
 		awardMapper.insertSelective(award);
 	}
 	
+	public int getawardId() {
+		return awardMapper.selectawardId();
+	}
+	
 	public void deleteAward(Integer awardId) {
 		awardMapper.deleteByPrimaryKey(awardId);
 	}

@@ -20,7 +20,7 @@ public class ImgCode {
     // {"宋体", "华文楷体", "黑体", "华文新魏", "华文隶书", "微软雅黑", "楷体_GB2312"}
     private String[] fontNames  = {"宋体", "华文楷体", "黑体", "微软雅黑", "楷体_GB2312"};
     // 可选字符
-    private String codes  = "0123456789abcdefghjkmnopqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ";
+    private String codes  = "0123456789";
     // 背景色
     private Color bgColor  = new Color(255, 255, 255);
     // 验证码上的文本

@@ -16,6 +16,8 @@ public interface ProjectMapper {
 
     int insertSelective(Project record);
 
+    int selectprojectId();
+    
     List<Project> selectByExample(ProjectExample example);
 
     Project selectByPrimaryKey(Integer projectId);

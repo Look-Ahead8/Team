@@ -17,6 +17,9 @@ public class LifeService {
 	public int saveLife(Life life) {
 		return lifeMapper.insertSelective(life);
 	}
+	public int getlifeId() {
+		return lifeMapper.selectlifeId();
+	}
 	public void deleteLife(Integer lifeId) {
 		lifeMapper.deleteByPrimaryKey(lifeId);
 	}
